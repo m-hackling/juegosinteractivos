@@ -73,23 +73,24 @@ function showScene(key) {
 showScene("Start");
 
 window.addEventListener("DOMContentLoaded", () => {
+    const startBtn = document.getElementById("start-btn");
+    const overlay = document.getElementById("overlay");
+    const gameContainer = document.getElementById("game-container");
     const audio = document.getElementById("bg-music");
 
-    // Intenta reproducir después de un pequeño retardo
-    setTimeout(() => {
-        audio.muted = false; // desactivar mute
-        audio.volume = 0.4;
+    startBtn.addEventListener("click", () => {
+        overlay.style.display = "none";
+        gameContainer.style.display = "block";
 
-        const playPromise = audio.play();
+        audio.volume = 0.1;
+        audio.muted = false;
+        audio.play().then(() => {
+            console.log("Audio activado.");
+        }).catch(error => {
+            console.warn("No se pudo reproducir el audio:", error);
+        });
 
-        if (playPromise !== undefined) {
-            playPromise
-                .then(() => {
-                    console.log("Audio reproduciéndose correctamente.");
-                })
-                .catch(error => {
-                    console.warn("Autoplay bloqueado. Se requiere interacción del usuario.");
-                });
-        }
-    }, 300); // retardo corto para asegurar que el DOM está listo
+        showScene("Start");
+    });
 });
+

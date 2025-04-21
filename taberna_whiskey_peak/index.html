@@ -6,7 +6,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="game-container">
+    <!-- Pantalla de bienvenida -->
+    <div id="overlay">
+        <div class="overlay-content">
+            <h1>¡Reinauguración de la taberna de Whiskey Peak!</h1>
+            <p>Haz clic para entrar y activar la música, Rakuen te da la bienvenida</p>
+            <button id="start-btn">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="game-container" style="display: none;">
         <div id="character-box">
             <img id="character-image" src="" alt="Personaje">
         </div>
@@ -16,10 +26,14 @@
         </div>
         <div id="choices"></div>
     </div>
+
     <script src="script.js"></script>
-    <audio id="bg-music" autoplay loop muted playsinline>
-        <source src="https://soundhost.net/wp-content/uploads/2022/07/Beamer.mp3" type="audio/mpeg">
+
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="audio.mp3" type="audio/mp3">
         Tu navegador no soporta audio HTML5.
     </audio>
 </body>
+
 </html>
