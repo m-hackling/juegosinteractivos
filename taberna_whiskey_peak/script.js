@@ -5,6 +5,7 @@ const scenes = {
     Start: {
         character: "Bartender",
         image: "https://i.ebayimg.com/images/g/dH4AAOSwC7VhyIww/s-l1200.png",
+        background: "",
         text: `¡Bienvenido a la nueva taberna de Whiskey Peak!<br>Estamos celebrando nuestra reinauguración gracias a la ayuda de la tripulación Rakuen Kaizokudan.<br><br>Por favor, siéntete como en casa. ¿Deseas tomar algo o prefieres explorar el lugar?`,
         options: [
             { text: "Pedir algo de beber", next: "Sake" },
@@ -15,6 +16,7 @@ const scenes = {
     Sake: {
         character: "Bartender",
         image: "https://i.ebayimg.com/images/g/dH4AAOSwC7VhyIww/s-l1200.png",
+        background: "https://i.imgur.com/SnAsQLs.png",
         text: `Aquí tienes, una jarra de nuestro mejor sake. ¡Cortesía de la casa por la reinauguración!`,
         options: [
             { text: "Agradecer y beber", next: "FinSake" },
@@ -25,6 +27,7 @@ const scenes = {
     Explorar: {
         character: "Narrador",
         image: "",
+        background: "https://i.imgur.com/lQT2bP4.png",
         text: `La taberna ha sido remodelada con gusto. Hay decoraciones nuevas, banderas piratas colgadas y una tarima donde alguien parece estar afinando un violín.`,
         options: [
             { text: "Acercarte a la tarima", next: "FinExplorar" },
@@ -35,6 +38,7 @@ const scenes = {
     FinSake: {
         character: "Narrador",
         image: "",
+        background: "",
         text: `El sake está delicioso. La atmósfera se llena de risas y música. Parece que esta noche será inolvidable...<br><br><em>FIN (por ahora)</em>`,
         options: [
             { text: "Volver al inicio", next: "Start" }
@@ -44,6 +48,7 @@ const scenes = {
     FinExplorar: {
         character: "Narrador",
         image: "",
+        background: "",
         text: `Te acercas a la tarima y notas que el músico es un mink. Al verte, asiente con una sonrisa, y comienza a tocar una melodía tranquila que inunda todo el lugar.<br><br><em>FIN (por ahora)</em>`,
         options: [
             { text: "Volver al inicio", next: "Start" }
@@ -58,6 +63,7 @@ function showScene(key) {
     document.getElementById("character-name").textContent = content.character || "";
     document.getElementById("dialogue-text").innerHTML = content.text || "";
     document.getElementById("character-image").src = content.image || "";
+    document.getElementById("character-box").style.backgroundImage = "url('" + content.background + "')";
     
     const choices = document.getElementById("choices");
     choices.innerHTML = "";

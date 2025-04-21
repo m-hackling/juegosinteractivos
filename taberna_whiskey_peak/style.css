@@ -17,11 +17,12 @@ body {
 
 #character-box {
     text-align: center;
-    margin-bottom: 1rem;
+    height: 286px;
+    width: 800px;
 }
 
 #character-image {
-    max-height: 300px;
+    max-height: 286px;
     max-width: 100%;
     border-radius: 10px;
 }
@@ -82,6 +83,7 @@ button:hover {
     color: #f0e68c;
     font-family: 'Georgia', serif;
     box-shadow: 0 0 30px #000;
+    width: 50rem;
 }
 
 #start-btn {
