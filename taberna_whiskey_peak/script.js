@@ -8,7 +8,7 @@ let currentText = "";
 const scenes = {
     // Escena inicial
     Start: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/8LCUO8p.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
@@ -19,7 +19,7 @@ const scenes = {
     },
 
     PresentacionRakuen: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/hIFLvwF.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
@@ -41,7 +41,7 @@ const scenes = {
     },
 
     PresentacionCamellia: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/p0qaRKM.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
@@ -63,7 +63,7 @@ const scenes = {
     },
 
     PresentacionRelmin: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/D6av3eI.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
@@ -77,27 +77,127 @@ const scenes = {
         character: "Relmin",
         image: "https://i.imgur.com/D6av3eI.png",
         background: "https://i.imgur.com/95tv4Uv.png",
-        soundEffect: "",
-        text: `¡AAAAAAAAAAAAAAAAAAAAAAAAH! ¡Venir aquí ha sido lo mejor que me ha pasado! ♡u♡`,
-        options: [
-            { text: "Conocer al carpintero", next: "PresentacionBamby" }
-        ]
-    },
-    ////////VAS POR AQUI
-    PresentacionBamby: {
-        character: "Bartender",
-        image: "https://i.imgur.com/D6av3eI.png",
-        background: "https://i.imgur.com/95tv4Uv.png",
-        soundEffect: "",
+        soundEffect: "ohayo.mp3",
         text: `¡AAAAAAAAAAAAAAAAAAAAAAAAH! ¡Venir aquí ha sido lo mejor que me ha pasado! ♡u♡`,
         options: [
             { text: "Conocer al carpintero", next: "PresentacionBamby" }
         ]
     },
 
+    PresentacionBamby: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/SOLHUdh.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Sin duda Bamby es alguien peculiar, tiene la energía hasta el tope. ¡Nunca se cansa! Nos ha ayudado a mantener la taberna en óptimas condiciones.`,
+        options: [
+            { text: "Hablar con Bamby", next: "HablasBamby" }
+        ]
+    },
+    
+    HablasBamby: {
+        character: "Bamby",
+        image: "https://i.imgur.com/SOLHUdh.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `¡HIP! ¡Ya están viniendo todos los invitados y las mesas… ¡las mesas no están listas, ¡HIP! ¡Ay, no, esto no está listo! ¿Y las decoraciones? ¡Las decoraciones tampoco! ¡Ay, ¿qué vamos a hacer?!`,
+        options: [
+            { text: "Conocer al cocinero", next: "PresentacionElend" }
+        ]
+    },
+
+    PresentacionElend: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/fu5FDqW.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Ese sujeto que ves ahí es Elend, el cocinero de Rakuen. No he cruzado muchas palabras con él, pero siempre está dispuesto a mantenernos con el estómago lleno.`,
+        options: [
+            { text: "Hablar con Elend", next: "HablasElend" }
+        ]
+    },
+
+    HablasElend: {
+        character: "Elend",
+        image: "https://i.imgur.com/fu5FDqW.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Bueno, bueno… ¡Miren esto! Si alguien piensa que va a salir algo mal con estos aperitivos, les garantizo que no saben de lo que hablan. Todo va perfecto, ya lo verán… aunque con la presión, claro, algo puede salirse de control, pero nada que no pueda arreglarse con un poco de sal y pimienta. A los que vienen a esta taberna no les voy a dar solo comida, ¡les voy a dar una experiencia, maldita sea!`,
+        options: [
+            { text: "Conocer al técnico", next: "PresentacionRodney" }
+        ]
+    },
+
+    PresentacionRodney: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/inevtMH.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Él es Rodney, el tecnológo de la tripulación. Aún nos ayuda adecuando las instalaciones eléctricas en el techo de la taberna.`,
+        options: [
+            { text: "Hablar con Rodney", next: "HablasRodney" }
+        ]
+    },
+
+    PresentacionRodney: {
+        character: "Rodney",
+        image: "https://i.imgur.com/inevtMH.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Sensor térmico descalibrado, bomba secundaria con retardo... claro, cómo no. ¿Y ahora qué? ¿El dispensador de jugo cree que es un lanzallamas? Bueno, eso es nuevo. Nota mental: jamás dejar a Bamby reprogramar nada. ¡Ya casi, Rodney, ya casi… solo no explotes nada antes del brindis!`,
+        options: [
+            { text: "Conocer a la rebelde", next: "PresentacionAsura" }
+        ]
+    },
+
+    PresentacionAsura: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/UTlHSRL.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Ella... ella... Bueno, ella es Asura, nos han dicho que viene del mismo cielo, y es un poco feroz. Ha estado tomando de las astas a Bamby desde que llegaron.`,
+        options: [
+            { text: "Hablar con Asura", next: "HablasAsura" }
+        ]
+    },
+
+    HablasAsura: {
+        character: "Asura",
+        image: "https://i.imgur.com/UTlHSRL.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `La madera cruje, los pasos se acercan… Ya están llegando. Que vean lo que construimos. Que sientan lo que es estar a salvo por una noche, sin cadenas ni miedo. Si alguien arruina esto, no me temblará la mano.`,
+        options: [
+            { text: "Terminar la presentación", next: "RakuenJunto" }
+        ]
+    },
+
+    RakuenJunto: {
+        character: "Rakuen",
+        image: "https://i.imgur.com/tBsts4W.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `¡Bienvenido a la reinauguración!`,
+        options: [
+            { text: "Terminar la presentación y hablar con el tabernero", next: "InicioTabernero" }
+        ]
+    },
+
+    InicioTabernero: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/8LCUO8p.png",
+        background: "https://i.imgur.com/0WVQzdJ.png",
+        soundEffect: "",
+        text: `Por favor, siéntete como en casa. ¿Deseas tomar algo o prefieres explorar el lugar?`,
+        options: [
+            { text: "Tomar algo de beber", next: "TomarSake1" },
+            { text: "¿Necesitas ayuda?", next: "OfrecerAyuda" }
+        ]
+    },
+
     // Ruta 1 y 4
     TomarSake1: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/8LCUO8p.png",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
@@ -126,7 +226,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `Ya estás algo ebrio. El bartender se acerca preocupado.`,
+        text: `Ya estás algo ebrio. El tabernero se acerca preocupado.`,
         options: [
             { text: "Beber otro", next: "FinalMalo1" }
         ]
@@ -139,7 +239,6 @@ const scenes = {
         soundEffect: "",
         text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em>`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
         ]
     },
 
@@ -148,9 +247,8 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `En tu borrachera, empujas al bartender sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em>`,
+        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em>`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
         ]
     },
 
@@ -159,7 +257,7 @@ const scenes = {
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
-        text: `Notas al bartender preocupado. Algo no está bien.`,
+        text: `Notas al tabernero preocupado. Algo no está bien.`,
         options: [
             { text: "Preguntar si necesita ayuda", next: "OfrecerAyuda" }
         ]
@@ -167,7 +265,7 @@ const scenes = {
 
     // Ofreces ayuda
     OfrecerAyuda: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/8LCUO8p.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
@@ -183,7 +281,7 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `El bartender suspira. Aun así, sigue limpiando solo. Lo notas muy tenso.`,
+        text: `El tabernero suspira. Aun así, sigue limpiando solo. Lo notas muy tenso.`,
         options: [
             { text: "Preguntar qué le preocupa", next: "HistoriaExtorsion" },
             { text: "Ignorar y marcharte", next: "FinalNeutral3" }
@@ -195,9 +293,8 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (neutral)</em>`,
+        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
         ]
     },
 
@@ -218,7 +315,7 @@ const scenes = {
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
-        text: `Terminas de organizar. Pero el bartender sigue preocupado.`,
+        text: `Terminas de organizar. Pero el tabernero sigue preocupado.`,
         options: [
             { text: "Preguntar qué le preocupa", next: "HistoriaExtorsion" }
         ]
@@ -231,12 +328,12 @@ const scenes = {
         soundEffect: "grab.mp3",
         text: `Encuentras un par de guantes de acero escondidos entre cajas. Podrían ser útiles.`,
         options: [
-            { text: "Volver y hablar con el bartender", next: "HistoriaExtorsionConGuantes" }
+            { text: "Volver y hablar con el tabernero", next: "HistoriaExtorsionConGuantes" }
         ]
     },
 
     HistoriaExtorsion: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "cry.mp3",
@@ -248,7 +345,7 @@ const scenes = {
     },
 
     HistoriaExtorsionConGuantes: {
-        character: "Bartender",
+        character: "Tabernero",
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "cry.mp3",
@@ -264,7 +361,7 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `El bartender asiente resignado. Se da vuelta y sigue limpiando solo.`,
+        text: `El tabernero asiente resignado. Se da vuelta y sigue limpiando solo.`,
         options: [
             { text: "Robarle mientras está distraído", next: "FinalMalo2" },
             { text: "Marcharte", next: "FinalNeutral3" }
@@ -276,9 +373,8 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Aprovechas el descuido del bartender y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em>`,
+        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em>`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
         ]
     },
 
@@ -287,9 +383,9 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El bartender te abraza con gratitud.<br><br><em>¡FINAL BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
+        text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud.<br><br><em>¡FINAL BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
+            { text: "Finalizar la novela gráfica", next: "Start" }
         ]
     },
 
@@ -300,21 +396,38 @@ const scenes = {
         soundEffect: "",
         text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em>`,
         options: [
-            { text: "Volver al inicio", next: "Start" }
         ]
     }
 };
 
+function disableChoices() {
+    const choices = document.getElementById("choices");
+    choices.querySelectorAll("button").forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.pointerEvents = "none";
+    });
+}
+
+function enableChoices() {
+    const choices = document.getElementById("choices");
+    choices.querySelectorAll("button").forEach(btn => {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.style.pointerEvents = "auto";
+    });
+}
+
 function typeText(element, text, index = 0) {
     isTyping = true;
     currentText = text;
-
     typingIndicator.classList.add("visible");
+
+    disableChoices(); // 
 
     if (index < text.length) {
         let char = text[index];
 
-        // Detectar etiquetas HTML
         if (char === "<") {
             const closeIndex = text.indexOf(">", index);
             if (closeIndex !== -1) {
@@ -329,6 +442,7 @@ function typeText(element, text, index = 0) {
     } else {
         isTyping = false;
         typingIndicator.classList.remove("visible");
+        enableChoices(); // 
     }
 }
 
@@ -339,8 +453,7 @@ function showScene(key) {
     document.getElementById("character-name").textContent = content.character || "";
     document.getElementById("character-image").src = content.image || "";
     document.getElementById("character-box").style.backgroundImage = "url('" + content.background + "')";
-    
-    // Detiene cualquier animación anterior
+
     clearTimeout(typingInterval);
     const dialogueText = document.getElementById("dialogue-text");
     dialogueText.innerHTML = "";
@@ -355,6 +468,14 @@ function showScene(key) {
         fx.play();
     }
 
+    // Si no hay opciones, es una ruta final, recarga la página
+    if (!content.options || content.options.length === 0) {
+        setTimeout(() => {
+            location.reload();  // Recarga la página después de mostrar la escena final
+        }, 7000);  // Espera 1 segundo antes de recargar para ver el último diálogo
+        return; // Evita que se ejecuten más acciones después de la recarga
+    }
+
     (content.options || []).forEach(opt => {
         const btn = document.createElement("button");
         btn.textContent = opt.text;
@@ -362,7 +483,7 @@ function showScene(key) {
         choices.appendChild(btn);
     });
 
-
+    disableChoices();
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -387,7 +508,6 @@ window.addEventListener("DOMContentLoaded", () => {
         showScene("Start");
     });
 
-    // Permitir salto de animación
     const dialogueBox = document.getElementById("dialogue-text");
     dialogueBox.addEventListener("click", () => {
         if (isTyping) {
@@ -395,7 +515,7 @@ window.addEventListener("DOMContentLoaded", () => {
             dialogueBox.innerHTML = currentText;
             typingIndicator.classList.remove("visible");
             isTyping = false;
+            enableChoices(); 
         }
     });
 });
-
