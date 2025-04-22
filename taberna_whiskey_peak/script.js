@@ -4,6 +4,7 @@ let typingInterval;
 let isTyping = false;
 let typingIndicator;
 let currentText = "";
+let finalAlcanzado = false;
 
 const scenes = {
     // Escena inicial
@@ -15,12 +16,16 @@ const scenes = {
         text: `¡Bienvenido a la taberna de Whiskey Peak!<br>Estamos celebrando nuestra reinauguración con ayuda de Rakuen.<br><br>¡Te los voy a presentar para que los conozcas!`,
         options: [
             { text: "Conocer a los integrantes", next: "PresentacionRakuen" },
+        ],
+        optionsSkip: [
+            { text: "Conocer a los integrantes", next: "PresentacionRakuen" },
+            { text: "Saltarse la introducción", next: "InicioTabernero" },
         ]
     },
 
     PresentacionRakuen: {
         character: "Tabernero",
-        image: "https://i.imgur.com/hIFLvwF.png",
+        image: "https://i.imgur.com/VtEmjZH.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `El es Aska, el capitán de la tripulación. Su iniciativa motivó a los demás para que adecuaran el interior y la fachada de la taberna.`,
@@ -31,7 +36,7 @@ const scenes = {
 
     HablasAska: {
         character: "Aska",
-        image: "https://i.imgur.com/hIFLvwF.png",
+        image: "https://i.imgur.com/VtEmjZH.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Muchas gracias por venir a la inauguración. Whiskey Peak debe ser un mejor lugar para todos.`,
@@ -42,7 +47,7 @@ const scenes = {
 
     PresentacionCamellia: {
         character: "Tabernero",
-        image: "https://i.imgur.com/p0qaRKM.png",
+        image: "https://i.imgur.com/ax7feAg.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Ella es Camellia, mano derecha del capitán. Su gran tamaño nos ayudó a reparar las instalaciones con más facilidad, sus arrugas denotan años de experiencia.`,
@@ -53,7 +58,7 @@ const scenes = {
 
     HablasCamellia: {
         character: "Camellia",
-        image: "https://i.imgur.com/p0qaRKM.png",
+        image: "https://i.imgur.com/ax7feAg.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Hay mucho por hacer aquí, mientras tanto, espero encuentres un lugar cómodo por aquí.`,
@@ -64,7 +69,7 @@ const scenes = {
 
     PresentacionRelmin: {
         character: "Tabernero",
-        image: "https://i.imgur.com/D6av3eI.png",
+        image: "https://i.imgur.com/0xP3OJP.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Este niño se llama Relmin, desde que ha venido aquí no le ha quitado los ojos de encima a las camareras...`,
@@ -75,7 +80,7 @@ const scenes = {
 
     HablasRelmin: {
         character: "Relmin",
-        image: "https://i.imgur.com/D6av3eI.png",
+        image: "https://i.imgur.com/0xP3OJP.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "ohayo.mp3",
         text: `¡AAAAAAAAAAAAAAAAAAAAAAAAH! ¡Venir aquí ha sido lo mejor que me ha pasado! ♡u♡`,
@@ -86,7 +91,7 @@ const scenes = {
 
     PresentacionBamby: {
         character: "Tabernero",
-        image: "https://i.imgur.com/SOLHUdh.png",
+        image: "https://i.imgur.com/qzhfxaq.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Sin duda Bamby es alguien peculiar, tiene la energía hasta el tope. ¡Nunca se cansa! Nos ha ayudado a mantener la taberna en óptimas condiciones.`,
@@ -97,7 +102,7 @@ const scenes = {
     
     HablasBamby: {
         character: "Bamby",
-        image: "https://i.imgur.com/SOLHUdh.png",
+        image: "https://i.imgur.com/qzhfxaq.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `¡HIP! ¡Ya están viniendo todos los invitados y las mesas… ¡las mesas no están listas, ¡HIP! ¡Ay, no, esto no está listo! ¿Y las decoraciones? ¡Las decoraciones tampoco! ¡Ay, ¿qué vamos a hacer?!`,
@@ -108,7 +113,7 @@ const scenes = {
 
     PresentacionElend: {
         character: "Tabernero",
-        image: "https://i.imgur.com/fu5FDqW.png",
+        image: "https://i.imgur.com/rVWfMle.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Ese sujeto que ves ahí es Elend, el cocinero de Rakuen. No he cruzado muchas palabras con él, pero siempre está dispuesto a mantenernos con el estómago lleno.`,
@@ -119,7 +124,7 @@ const scenes = {
 
     HablasElend: {
         character: "Elend",
-        image: "https://i.imgur.com/fu5FDqW.png",
+        image: "https://i.imgur.com/rVWfMle.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Bueno, bueno… ¡Miren esto! Si alguien piensa que va a salir algo mal con estos aperitivos, les garantizo que no saben de lo que hablan. Todo va perfecto, ya lo verán… aunque con la presión, claro, algo puede salirse de control, pero nada que no pueda arreglarse con un poco de sal y pimienta. A los que vienen a esta taberna no les voy a dar solo comida, ¡les voy a dar una experiencia, maldita sea!`,
@@ -130,7 +135,7 @@ const scenes = {
 
     PresentacionRodney: {
         character: "Tabernero",
-        image: "https://i.imgur.com/inevtMH.png",
+        image: "https://i.imgur.com/MYBeeqw.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Él es Rodney, el tecnológo de la tripulación. Aún nos ayuda adecuando las instalaciones eléctricas en el techo de la taberna.`,
@@ -141,7 +146,7 @@ const scenes = {
 
     HablasRodney: {
         character: "Rodney",
-        image: "https://i.imgur.com/inevtMH.png",
+        image: "https://i.imgur.com/MYBeeqw.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Sensor térmico descalibrado, bomba secundaria con retardo... claro, cómo no. ¿Y ahora qué? ¿El dispensador de jugo cree que es un lanzallamas? Bueno, eso es nuevo. Nota mental: jamás dejar a Bamby reprogramar nada. ¡Ya casi, Rodney, ya casi… solo no explotes nada antes del brindis!`,
@@ -152,7 +157,7 @@ const scenes = {
 
     PresentacionAsura: {
         character: "Tabernero",
-        image: "https://i.imgur.com/UTlHSRL.png",
+        image: "https://i.imgur.com/WLEcPtd.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `Ella... ella... Bueno, ella es Asura, nos han dicho que viene del mismo cielo, y es un poco feroz. Ha estado tomando de las astas a Bamby desde que llegaron.`,
@@ -163,7 +168,7 @@ const scenes = {
 
     HablasAsura: {
         character: "Asura",
-        image: "https://i.imgur.com/UTlHSRL.png",
+        image: "https://i.imgur.com/WLEcPtd.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `La madera cruje, los pasos se acercan… Ya están llegando. Que vean lo que construimos. Que sientan lo que es estar a salvo por una noche, sin cadenas ni miedo. Si alguien arruina esto, no me temblará la mano.`,
@@ -174,7 +179,7 @@ const scenes = {
 
     RakuenJunto: {
         character: "Rakuen",
-        image: "https://i.imgur.com/tBsts4W.png",
+        image: "https://i.imgur.com/qhlPj8y.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `¡Bienvenido a la reinauguración!`,
@@ -237,9 +242,8 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
+        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -248,9 +252,8 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
+        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -295,9 +298,8 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
+        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -376,9 +378,8 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
+        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -389,7 +390,7 @@ const scenes = {
         soundEffect: "",
         text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud.<br><br><em>¡FINAL BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
         options: [
-            { text: "Finalizar la novela gráfica", next: "Start" }
+            { text: "Finalizar la novela gráfica, felicidades", next: "Start" }
         ]
     },
 
@@ -398,9 +399,8 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
+        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
-            { text: "Volver a empezar", next: "Start" }
         ]
     }
 };
@@ -473,20 +473,48 @@ function showScene(key) {
         fx.play();
     }
 
-    // Si no hay opciones, es una ruta final, recarga la página
+    // Si no hay opciones, es una ruta final
     if (!content.options || content.options.length === 0) {
-        setTimeout(() => {
-            location.reload();  // Recarga la página después de mostrar la escena final
-        }, 8000);  // Espera 1 segundo antes de recargar para ver el último diálogo
-        return; // Evita que se ejecuten más acciones después de la recarga
+        sessionStorage.setItem("finalAlcanzado", "true");
+    
+        const countdownDiv = document.getElementById("countdown");
+        const countdownTimer = document.getElementById("countdown-timer");
+        countdownDiv.style.display = "block";
+    
+        let timeLeft = 7;
+        countdownTimer.textContent = timeLeft;
+    
+        const countdownInterval = setInterval(() => {
+            timeLeft--;
+            countdownTimer.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdownInterval);
+                location.reload();
+            }
+        }, 1000);
+    
+        return;
     }
 
-    (content.options || []).forEach(opt => {
-        const btn = document.createElement("button");
-        btn.textContent = opt.text;
-        btn.onclick = () => showScene(opt.next);
-        choices.appendChild(btn);
-    });
+    // Saltar la presentación si ya se alcanzó un final
+    if (sessionStorage.getItem("finalAlcanzado")) {
+        const sceneEach = content.optionsSkip ? content.optionsSkip : content.options;
+        (sceneEach ? sceneEach : []).forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt.text;
+            btn.onclick = () => showScene(opt.next);
+            choices.appendChild(btn);
+        });
+    }else{
+        (content.options || []).forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt.text;
+            btn.onclick = () => showScene(opt.next);
+            choices.appendChild(btn);
+        });
+    }
+
+
 
     disableChoices();
 }

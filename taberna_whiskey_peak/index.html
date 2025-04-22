@@ -15,8 +15,11 @@
             <br>
             <span style="color: red;"><b>[!] </b></span>Esta es una novela gráfica interactiva, recuerda activar el sonido, donde tendrás que leer y tomar decisiones para obtener un final, si logras llegar hasta el final bueno debes tomar una evidencia gráfica y subirla en el post del comunicado.
             <br><br>
-            <span><b>⌛ </b></span>Cada vez que salga este ícono significa que un personaje está hablando, puedes dar clic en el diálogo para que termine al instante.
-            <button id="start-btn">Ingresar</button>
+            <span style="color: red;"><b>[!] </b></span>Para mejor compatibilidad con el código de la novela gráfica, se recomienda usar navegadores como Edge, Chrome u Opera.
+            <br><br>
+            <span><b>⌛ </b></span>Cada vez que salga este ícono significa que un personaje está hablando, puedes dar clic en el texto de diálogo para que termine al instante.
+            <button id="start-btn">Comenzar</button>
+            <br><br><span style="color: white; font-size: 14px;">v1.0.1</span>
         </div>
     </div>
 
@@ -31,6 +34,9 @@
             <div id="typing-indicator">⌛</div>
         </div>
         <div id="choices"></div>
+        <div id="countdown" style="display: none; font-weight: bold; font-size: 17x; color: white; margin-top: 10px; margin-left: 10px;">
+            <img src='https://i.imgur.com/0DSPtcr.png' style="margin-right: 5px;"/></span>Reiniciando en <span id="countdown-timer">7</span> segundos...
+        </div>
     </div>
 
     <script src="script.js"></script>
