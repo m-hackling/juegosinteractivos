@@ -139,7 +139,7 @@ const scenes = {
         ]
     },
 
-    PresentacionRodney: {
+    HablasRodney: {
         character: "Rodney",
         image: "https://i.imgur.com/inevtMH.png",
         background: "https://i.imgur.com/95tv4Uv.png",
@@ -237,8 +237,9 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em>`,
+        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
         options: [
+            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -247,8 +248,9 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em>`,
+        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
         options: [
+            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -293,8 +295,9 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica volverá a cargarse en unos segundos...`,
+        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
         options: [
+            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -373,8 +376,9 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em>`,
+        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
         options: [
+            { text: "Volver a empezar", next: "Start" }
         ]
     },
 
@@ -394,8 +398,9 @@ const scenes = {
         image: "",
         background: "",
         soundEffect: "",
-        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em>`,
+        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, presiona el botón para volver a empezar al instante.`,
         options: [
+            { text: "Volver a empezar", next: "Start" }
         ]
     }
 };
@@ -472,7 +477,7 @@ function showScene(key) {
     if (!content.options || content.options.length === 0) {
         setTimeout(() => {
             location.reload();  // Recarga la página después de mostrar la escena final
-        }, 7000);  // Espera 1 segundo antes de recargar para ver el último diálogo
+        }, 8000);  // Espera 1 segundo antes de recargar para ver el último diálogo
         return; // Evita que se ejecuten más acciones después de la recarga
     }
 
