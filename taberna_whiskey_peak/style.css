@@ -19,6 +19,7 @@ body {
     text-align: center;
     height: 286px;
     width: 800px;
+    border-radius: 10px 10px 0px 0px;
 }
 
 #character-image {
@@ -30,7 +31,7 @@ body {
 #dialogue-box {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     margin-bottom: 1rem;
 }
 
@@ -101,4 +102,23 @@ button:hover {
 
 #start-btn:hover {
     background-color: #c39b2f;
+}
+
+#typing-indicator {
+    font-size: 1.5rem;
+    text-align: right;
+    padding-top: 0.5rem;
+    color: #ffd700;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#typing-indicator.visible {
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
 }
