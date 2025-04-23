@@ -356,7 +356,7 @@ const scenes = {
         image: "https://i.imgur.com/83RKd0C.png",
         background: "https://i.imgur.com/yRyNFxL.png",
         soundEffect: "grab.mp3",
-        text: `¡Has obtenido la llave de la bodega!`,
+        text: `¡Has obtenido Llave Bodega [x1]!`,
         options: [
             { text: "Guardar la llave e ir a la bodega", next: "InvestigarBodegaConLlaves" },
             { text: "No tomar la llave y salir del baño, la reinauguración ya va a comenzar", next: "TerminarOrganizar" }
@@ -414,7 +414,7 @@ const scenes = {
         image: "https://i.imgur.com/MRdT26V.png",
         background: "https://i.imgur.com/6I14sev.png",
         soundEffect: "grab.mp3",
-        text: `Encuentras un par de guantes de acero escondidos entre cajas. Podrían ser útiles.`,
+        text: `¡Encuentras Guantes de Acero [x1] escondidos entre cajas! Podrían ser útiles.`,
         options: [
             { text: "Volver y hablar con el tabernero", next: "TerminarOrganizarConGuantes" }
         ]
@@ -435,7 +435,7 @@ const scenes = {
         character: "Narrador",
         image: "",
         background: "https://i.imgur.com/peYZbBo.png",
-        soundEffect: "",
+        soundEffect: "doorlock.mp3",
         text: `Te acercas la puerta de la bodega, pero el pomo está atorado.`,
         options: [
             { text: "Intentar forzarla", next: "ForzarPuerta" },
@@ -583,12 +583,36 @@ const scenes = {
 
     PeleaConGuantesImprovisto: {
         character: "Narrador",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "fight.mp3",
+        text: `Comienzas a pelear contra el pirata que tienes en frente, muchos puños se conectan satisfactoriamente, sin embargo, él mucho más resistente y, de paso, está acompañado con subordinados. ¿Qué quieres hacer?`,
+        options: [
+            { text: "Reflexionar y huir despavorido, estás en desventaja numérica", next: "HuirPiratasSinGuantesPelea" },
+            { text: "Seguir luchando para derrotar a los piratas", next: "FinHistoriaSinGuantesImprovisto" },
+            { text: "Equiparte los Guantes de Acero que encontraste en la bodega", next: "DerrotarPirataPeleaConGuantesImprovisto" },
+        ]
+    },
+
+    DerrotarPirataPeleaConGuantesImprovisto: {
+        character: "Narrador",
         image: "https://i.imgur.com/cM3Lzdy.png",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "grab.mp3",
-        text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud luego de estar escondido detrás de una roca, te estuvo observando.<br><br><em>¡FINAL CONSEGUIDO: BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
+        text: `Gracias a los Guantes de Acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud luego de estar escondido detrás de una roca, estuvo observando tu hazaña.`,
         options: [
-            { text: "Finalizar la novela gráfica, felicidades", next: "Start" }
+            { text: "Hablar con el pirata malherido", next: "FinHistoriaPeleaConGuantesImprovisto" }
+        ]
+    },
+
+    FinHistoriaPeleaConGuantesImprovisto: {
+        character: "Pirata",
+        image: "https://i.imgur.com/cM3Lzdy.png",
+        background: "https://i.imgur.com/9vEJy1I.png",
+        soundEffect: "laugh.mp3",
+        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! Toma un pantallazo (pantalla completa) y publícalo en el post del comunicado.</em>`,
+        options: [
+            { text: "¿Viajarás a Banaro? (continuará). Finalizar la novela gráfica, felicidades.", next: "Start" }
         ]
     },
 
@@ -661,6 +685,28 @@ const scenes = {
     },
 
     PeleaSinGuantesImprovisto: {
+        character: "Narrador",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "fight.mp3",
+        text: `Comienzas a pelear contra el pirata que tienes en frente, muchos puños se conectan satisfactoriamente, sin embargo, él mucho más resistente y, de paso, está acompañado con subordinados. ¿Qué quieres hacer?`,
+        options: [
+            { text: "Reflexionar y huir despavorido, estás en desventaja numérica", next: "HuirPiratasSinGuantesPelea" },
+            { text: "Seguir luchando para derrotar a los piratas", next: "FinHistoriaSinGuantesImprovisto" },
+        ]
+    },
+
+    HuirPiratasSinGuantesPelea: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/9vEJy1I.png",
+        soundEffect: "",
+        text: `Sales huyendo de la costa bastante nervioso, esos piratas eran muy fuertes. A lo mejor intentarlo con un arma sería una buena idea. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        options: [       
+        ]
+    },
+
+    FinHistoriaSinGuantesImprovisto: {
         character: "Narrador",
         image: "https://i.imgur.com/mjLGXhD.png",
         background: "https://i.imgur.com/o8FxFqk.png",
