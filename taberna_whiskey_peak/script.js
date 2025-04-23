@@ -779,7 +779,8 @@ function typeText(element, text, index = 0) {
         enableChoices();
 
         // Solo iniciar cuenta regresiva si estamos en un final
-        if (sessionStorage.getItem("finalAlcanzado")) {
+        const currentScene = Object.values(scenes).find(s => s.text === currentText);
+        if (sessionStorage.getItem("finalAlcanzado") && currentScene && (!currentScene.options || currentScene.options.length === 0)) {
             iniciarCuentaRegresiva();
         }
     }
