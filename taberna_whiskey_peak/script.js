@@ -195,7 +195,7 @@ const scenes = {
         soundEffect: "",
         text: `Por favor, siéntete como en casa. ¿Deseas tomar algo o prefieres explorar el lugar?`,
         options: [
-            { text: "Tomar algo de beber", next: "TomarSake1" },
+            { text: "Pedirle algo de beber al tabernero", next: "TomarSake1" },
             { text: "¿Necesitas ayuda?", next: "OfrecerAyuda" }
         ]
     },
@@ -208,7 +208,7 @@ const scenes = {
         soundEffect: "",
         text: `Aquí tienes, nuestro mejor sake. ¡Disfrútalo!`,
         options: [
-            { text: "Beber otro trago sin prestar atención a la taberna", next: "TomarSake2" },
+            { text: "Beber otro trago sin prestarle atención a la taberna", next: "TomarSake2" },
             { text: "Beber y detallar la taberna", next: "GirarYObservar" }
         ]
     },
@@ -221,8 +221,8 @@ const scenes = {
         soundEffect: "",
         text: `Decides seguir bebiendo. El ambiente es festivo, pero algo turbio...`,
         options: [
-            { text: "Beber otro trago más", next: "TomarSake3" },
-            { text: "Salir de la taberna", next: "FinalNeutral1" }
+            { text: "Beber otro trago de sake más", next: "TomarSake3" },
+            { text: "Salir de la taberna a respirar", next: "FinalNeutral1" }
         ]
     },
 
@@ -233,7 +233,20 @@ const scenes = {
         soundEffect: "",
         text: `Ya estás algo ebrio. El tabernero se acerca preocupado.`,
         options: [
-            { text: "Beber otro trago", next: "FinalMalo1" }
+            { text: "Beber una cerveza de un solo trago", next: "TomarCerveza" },
+            { text: "Salir de la taberna, ya estás mareado", next: "FinalNeutral1" }
+        ]
+    },
+
+    TomarCerveza: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/IndAGxZ.png",
+        soundEffect: "",
+        text: `La mezcla de cerveza y sake te emborracha completamente, observas todo borroso...`,
+        options: [
+            { text: "Beber una jarra, con mezclas de cerveza y más sake", next: "FinalMalo1" },
+            { text: "Salir de la taberna, estás a punto de vomitar", next: "FinalNeutral1" }
         ]
     },
 
@@ -252,7 +265,7 @@ const scenes = {
         image: "https://i.imgur.com/CbpJSSL.png",
         background: "https://i.imgur.com/D3dNHu2.png",
         soundEffect: "lostGame.mp3",
-        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FINAL CONSEGUIDO: MALO (1)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `En tu borrachera, empujas fuertemente al tabernero pensando que quiere molestarte. Los camareros de la taberna te sacan a empujones. Luego te vomitas encima... <br><br><em>FINAL CONSEGUIDO: MALO (1)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
