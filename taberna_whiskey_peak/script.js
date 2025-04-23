@@ -611,9 +611,8 @@ const scenes = {
         image: "https://i.imgur.com/cM3Lzdy.png",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "laugh.mp3",
-        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! (1) Toma un pantallazo (pantalla completa) y publícalo en el post del comunicado.</em>`,
+        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! (1) ¿Viajarás a Banaro? (continuará). Toma una captura (pantalla completa del foro) y publícalo en el post del comunicado. Finaliza la novela grafica, felicidades</em>`,
         options: [
-            { text: "¿Viajarás a Banaro? (continuará). Finalizar la novela gráfica, felicidades.", next: "Start" }
         ]
     },
 
@@ -717,7 +716,6 @@ const scenes = {
         ]
     }
 };
-
 function disableChoices() {
     const choices = document.getElementById("choices");
     choices.querySelectorAll("button").forEach(btn => {
@@ -736,12 +734,30 @@ function enableChoices() {
     });
 }
 
+function iniciarCuentaRegresiva() {
+    const countdownDiv = document.getElementById("countdown");
+    const countdownTimer = document.getElementById("countdown-timer");
+    countdownDiv.style.display = "block";
+
+    let timeLeft = 10;
+    countdownTimer.textContent = timeLeft;
+
+    const countdownInterval = setInterval(() => {
+        timeLeft--;
+        countdownTimer.textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(countdownInterval);
+            location.reload();
+        }
+    }, 1000);
+}
+
 function typeText(element, text, index = 0) {
     isTyping = true;
     currentText = text;
     typingIndicator.classList.add("visible");
 
-    disableChoices(); // 
+    disableChoices();
 
     if (index < text.length) {
         let char = text[index];
@@ -760,7 +776,12 @@ function typeText(element, text, index = 0) {
     } else {
         isTyping = false;
         typingIndicator.classList.remove("visible");
-        enableChoices(); // 
+        enableChoices();
+
+        // Solo iniciar cuenta regresiva si estamos en un final
+        if (sessionStorage.getItem("finalAlcanzado")) {
+            iniciarCuentaRegresiva();
+        }
     }
 }
 
@@ -775,7 +796,9 @@ function showScene(key) {
     clearTimeout(typingInterval);
     const dialogueText = document.getElementById("dialogue-text");
     dialogueText.innerHTML = "";
-    typeText(dialogueText, content.text || "");
+
+    const esFinal = !content.options || content.options.length === 0;
+    typeText(dialogueText, content.text || "", 0, esFinal);
 
     const choices = document.getElementById("choices");
     choices.innerHTML = "";
@@ -786,26 +809,26 @@ function showScene(key) {
         fx.play();
     }
 
-    // Si no hay opciones, es una ruta final
-    if (!content.options || content.options.length === 0) {
+    if (esFinal) {
         sessionStorage.setItem("finalAlcanzado", "true");
-    
-        const countdownDiv = document.getElementById("countdown");
-        const countdownTimer = document.getElementById("countdown-timer");
-        countdownDiv.style.display = "block";
-    
-        let timeLeft = 10;
-        countdownTimer.textContent = timeLeft;
-    
-        const countdownInterval = setInterval(() => {
-            timeLeft--;
-            countdownTimer.textContent = timeLeft;
-            if (timeLeft <= 0) {
-                clearInterval(countdownInterval);
-                location.reload();
+        let nombreJugador = sessionStorage.getItem("nombreJugador");
+        if (!nombreJugador) {
+            nombreJugador = prompt("Has llegado al final de la historia. Ingresa tu nombre de foro para registrar tu participación:");
+            if (nombreJugador) {
+                sessionStorage.setItem("nombreJugador", nombreJugador);
+            } else {
+                nombreJugador = "Jugador desconocido";
             }
-        }, 1000);
-    
+        }
+
+        const finalMsg = document.createElement("div");
+        finalMsg.style.marginTop = "20px";
+        finalMsg.style.fontWeight = "bold";
+        finalMsg.style.fontSize = "1.2em";
+        finalMsg.style.textAlign = "center";
+        finalMsg.innerHTML = `Participación registrada como: <u>${nombreJugador}</u>`;
+        document.getElementById("dialogue-box").appendChild(finalMsg);
+
         return;
     }
 
@@ -826,8 +849,6 @@ function showScene(key) {
             choices.appendChild(btn);
         });
     }
-
-
 
     disableChoices();
 }
@@ -861,7 +882,13 @@ window.addEventListener("DOMContentLoaded", () => {
             dialogueBox.innerHTML = currentText;
             typingIndicator.classList.remove("visible");
             isTyping = false;
-            enableChoices(); 
+            enableChoices();
+    
+            // Solo activar cuenta regresiva si esta escena no tiene opciones
+            const currentScene = Object.values(scenes).find(s => s.text === currentText);
+            if (currentScene && (!currentScene.options || currentScene.options.length === 0)) {
+                iniciarCuentaRegresiva();
+            }
         }
     });
 });
