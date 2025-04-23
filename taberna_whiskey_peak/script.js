@@ -208,8 +208,8 @@ const scenes = {
         soundEffect: "",
         text: `Aquí tienes, nuestro mejor sake. ¡Disfrútalo!`,
         options: [
-            { text: "Beber y girarte a mirar el lugar", next: "GirarYObservar" },
-            { text: "Beber otro sin girarte", next: "TomarSake2" }
+            { text: "Beber otro trago sin prestar atención a la taberna", next: "TomarSake2" },
+            { text: "Beber y detallar la taberna", next: "GirarYObservar" }
         ]
     },
 
@@ -221,7 +221,7 @@ const scenes = {
         soundEffect: "",
         text: `Decides seguir bebiendo. El ambiente es festivo, pero algo turbio...`,
         options: [
-            { text: "Beber otro más", next: "TomarSake3" },
+            { text: "Beber otro trago más", next: "TomarSake3" },
             { text: "Salir de la taberna", next: "FinalNeutral1" }
         ]
     },
@@ -233,7 +233,7 @@ const scenes = {
         soundEffect: "",
         text: `Ya estás algo ebrio. El tabernero se acerca preocupado.`,
         options: [
-            { text: "Beber otro", next: "FinalMalo1" }
+            { text: "Beber otro trago", next: "FinalMalo1" }
         ]
     },
 
@@ -276,8 +276,8 @@ const scenes = {
         soundEffect: "",
         text: `Sí... me vendría bien ayuda para terminar de organizar la taberna.`,
         options: [
-            { text: "Ayudarle con la taberna", next: "AyudarOrganizar" },
-            { text: "No ayudar", next: "NoAyudar" }
+            { text: "No ayudarle, quieres pasarla bien en la reinauguración", next: "NoAyudar" },
+            { text: "Ayudarle con la taberna, la reinauguración puede esperar", next: "AyudarOrganizar" }
         ]
     },
 
@@ -288,8 +288,8 @@ const scenes = {
         soundEffect: "",
         text: `El tabernero suspira. Aun así, sigue limpiando solo. Lo notas muy tenso.`,
         options: [
-            { text: "Preguntar qué le preocupa", next: "HistoriaExtorsion" },
-            { text: "Ignorar y marcharte", next: "FinalNeutral3" }
+            { text: "Preguntar qué le preocupa al tabernero", next: "HistoriaExtorsion" },
+            { text: "Ignorar al tabernero y marcharte, te está poniendo de los nervios", next: "FinalNeutral3" }
         ]
     },
 
@@ -310,7 +310,7 @@ const scenes = {
         soundEffect: "clean.mp3",
         text: `Ayudas a limpiar y ordenar. El lugar empieza a lucir mejor.`,
         options: [
-            { text: "Seguir organizando", next: "OrganizarMas" },
+            { text: "Seguir organizando la taberna, la reinauguración puede esperar un momento", next: "OrganizarMas" },
             { text: "Terminar las labores, te duele la espalda y ya ha sido suficiente", next: "TerminarOrganizar" }
         ]
     },
@@ -322,8 +322,8 @@ const scenes = {
         soundEffect: "",
         text: `Tienes en frente dos puertas, una lleva al baño y otra lleva a una bodega. ¿A cuál decides ir?`,
         options: [
-            { text: "Entrar al baño", next: "OrganizarMasOtraVez" },
-            { text: "Entrar a la bodega", next: "InvestigarBodegaSinLlaves" }
+            { text: "Entrar a la bodega, debe estar llena de cajas y basura", next: "InvestigarBodegaSinLlaves" },
+            { text: "Entrar al baño, tiene pinta de estar sucio", next: "OrganizarMasOtraVez" }
         ]
     },
 
@@ -334,8 +334,8 @@ const scenes = {
         soundEffect: "",
         text: `El baño parece estar un poco sucio, dejaron la basura regada en el suelo y el tocador está pegajoso.`,
         options: [
-            { text: "Limpiar el baño", next: "LimpiarBaño" },
-            { text: "Negarte y salir a la taberna", next: "TerminarOrganizar" }
+            { text: "Limpiar el baño, pese a estar asqueroso", next: "LimpiarBaño" },
+            { text: "Negarte a limpiarlo y salir a la taberna, podrías enfermar", next: "TerminarOrganizar" }
         ]
     },
 
@@ -346,8 +346,8 @@ const scenes = {
         soundEffect: "clean.mp3",
         text: `Mientras limpias el baño, en la basura, alguien dejó una llave, con la etiqueta "bodega". ¿Decides tomarla?`,
         options: [
-            { text: "Tomar la llave", next: "TomarLlaveBodega" },
-            { text: "No tomarla y salir del baño", next: "TerminarOrganizar" }
+            { text: "Tomar la llave de la basura, puede servir para algo", next: "TomarLlaveBodega" },
+            { text: "No tomar la llave y salir del baño, puede estar infectada", next: "TerminarOrganizar" }
         ]
     },
 
@@ -358,8 +358,8 @@ const scenes = {
         soundEffect: "grab.mp3",
         text: `¡Has obtenido la llave de la bodega!`,
         options: [
-            { text: "Tomar la llave e ir a la bodega", next: "InvestigarBodegaConLlaves" },
-            { text: "No tomarla y salir del baño", next: "TerminarOrganizar" }
+            { text: "Guardar la llave e ir a la bodega", next: "InvestigarBodegaConLlaves" },
+            { text: "No tomar la llave y salir del baño, la reinauguración ya va a comenzar", next: "TerminarOrganizar" }
         ]
     },
 
@@ -370,10 +370,21 @@ const scenes = {
         soundEffect: "",
         text: `Terminas de organizar. Pero el tabernero sigue preocupado.`,
         options: [
-            { text: "Preguntar qué le preocupa", next: "HistoriaExtorsion" }
+            { text: "Preguntar qué le preocupa al tabernero", next: "HistoriaExtorsion" },
+            { text: "Dejar que se preocupe, las reinauguraciones suelen ser estresantes", next: "RegresarteNeutralSinPreocupar" }
         ]
     },
     
+    RegresarteNeutralSinPreocupar: {
+        character: "Narrador",
+        image: "https://i.imgur.com/qhlPj8y.png",
+        background: "https://i.imgur.com/73lIIcK.png",
+        soundEffect: "",
+        text: `Evitas al tabernero y te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        options: [       
+        ]
+    },
+
     InvestigarBodegaConLlaves: {
         character: "Narrador",
         image: "",
@@ -381,8 +392,8 @@ const scenes = {
         soundEffect: "doorlock.mp3",
         text: `Te acercas la puerta de la bodega, pero el pomo está atorado.`,
         options: [
-            { text: "Intentar forzarla", next: "ForzarPuerta" },
-            { text: "Usar las llaves que encontraste", next: "UsarLlaveBodega" },
+            { text: "Intentar forzar la puerta, debe estar vieja", next: "ForzarPuerta" },
+            { text: "Usar las llaves que encontraste, aunque esté sucia", next: "UsarLlaveBodega" }
         ]
     },
 
@@ -394,7 +405,7 @@ const scenes = {
         text: `¡Eureka! La puerta de la bodega se ha abierto.`,
         options: [
             { text: "Entrar a la bodega", next: "EncontrarGuantes" },
-            { text: "No entrar y hablar con el tabernero", next: "TerminarOrganizar" },
+            { text: "No entrar y hablar con el tabernero", next: "TerminarOrganizar" }
         ]
     },
 
@@ -428,7 +439,7 @@ const scenes = {
         text: `Te acercas la puerta de la bodega, pero el pomo está atorado.`,
         options: [
             { text: "Intentar forzarla", next: "ForzarPuerta" },
-            { text: "Dejar de intentar e ir al baño", next: "OrganizarMasOtraVez" },            
+            { text: "Dejar de intentar e ir al baño", next: "OrganizarMasOtraVez" }            
         ]
     },
 
@@ -529,8 +540,8 @@ const scenes = {
         soundEffect: "",
         text: `Sales de la taberna de Whiskey Peak, parece que la inauguración quedará para luego. A la lejanía observas a unos piratas en la costa`,
         options: [
-            { text: "Ir a la costa", next: "IrCostaGuantes" },
-            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" },            
+            { text: "Ir a la costa a ver a los piratas", next: "IrCostaGuantes" },
+            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" }            
         ]
     },
 
@@ -541,8 +552,8 @@ const scenes = {
         soundEffect: "",
         text: `En la costa, observas a un par de piratas bastante peligrosos.`,
         options: [
-            { text: "Hablar con los piratas", next: "HablarPiratasGuantes" },
-            { text: "Atacarlos de improvisto", next: "PeleaConGuantesImprovisto" },            
+            { text: "Hablar con los piratas valientemente", next: "HablarPiratasGuantes" },
+            { text: "Atacarlos de improvisto sin muchos rodeos", next: "PeleaConGuantesImprovisto" }            
         ]
     },
 
@@ -554,7 +565,7 @@ const scenes = {
         text: `¿Tu quién mierda eres? Largo de aquí.`,
         options: [
             { text: "Atacar al pirata", next: "PeleaConGuantesImprovisto" },
-            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirataConGuantes" },            
+            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirataConGuantes" }           
         ]
     },
 
@@ -566,7 +577,7 @@ const scenes = {
         text: `¡Ese condenado nos está dejando sin cerveza porque provocamos muchos problemas en el bar!`,
         options: [
             { text: "Comprendes la situación de los piratas y te vas", next: "RegresarteNeutralPirataExplicacion" },
-            { text: "Niegas y decides luchar contra ellos", next: "PeleaConGuantesImprovisto" },            
+            { text: "Niegas y decides luchar contra ellos de una vez", next: "PeleaConGuantesImprovisto" }            
         ]
     },
 
@@ -588,8 +599,8 @@ const scenes = {
         soundEffect: "",
         text: `Sales de la taberna de Whiskey Peak, parece que la inauguración quedará para luego. A la lejanía observas a unos piratas en la costa`,
         options: [
-            { text: "Ir a la costa", next: "IrCosta" },
-            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" },            
+            { text: "Ir a la costa a ver a los piratas", next: "IrCosta" },
+            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" }            
         ]
     },
 
@@ -610,8 +621,8 @@ const scenes = {
         soundEffect: "",
         text: `En la costa, observas a un par de piratas bastante peligrosos.`,
         options: [
-            { text: "Hablar con los piratas", next: "HablarPiratas" },
-            { text: "Atacarlos de improvisto", next: "PeleaSinGuantesImprovisto" },            
+            { text: "Hablar con los piratas valientemente", next: "HablarPiratas" },
+            { text: "Atacarlos de improvisto sin muchos rodeos", next: "PeleaSinGuantesImprovisto" }            
         ]
     },
 
@@ -622,8 +633,8 @@ const scenes = {
         soundEffect: "laugh.mp3",
         text: `¿Tu quién mierda eres? Largo de aquí.`,
         options: [
-            { text: "Atacar al pirata", next: "PeleaSinGuantesImprovisto" },
-            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirata" },            
+            { text: "Atacar al pirata sin esperar a que vuelva a hablar", next: "PeleaSinGuantesImprovisto" },
+            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirata" }            
         ]
     },
 
@@ -635,7 +646,7 @@ const scenes = {
         text: `¡Ese condenado nos está dejando sin cerveza porque provocamos muchos problemas en el bar!`,
         options: [
             { text: "Comprendes la situación de los piratas y te vas", next: "RegresarteNeutralPirataExplicacion" },
-            { text: "Niegas y decides luchar contra ellos", next: "PeleaSinGuantesImprovisto" },            
+            { text: "Niegas y decides luchar contra ellos de una vez por todas", next: "PeleaSinGuantesImprovisto" }            
         ]
     },
 
@@ -736,7 +747,7 @@ function showScene(key) {
         const countdownTimer = document.getElementById("countdown-timer");
         countdownDiv.style.display = "block";
     
-        let timeLeft = 7;
+        let timeLeft = 8;
         countdownTimer.textContent = timeLeft;
     
         const countdownInterval = setInterval(() => {
