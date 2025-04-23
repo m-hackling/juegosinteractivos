@@ -242,7 +242,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FINAL CONSEGUIDO: NEUTRAL (1)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -252,7 +252,7 @@ const scenes = {
         image: "https://i.imgur.com/CbpJSSL.png",
         background: "https://i.imgur.com/D3dNHu2.png",
         soundEffect: "lostGame.mp3",
-        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FINAL CONSEGUIDO: MALO (1)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -298,7 +298,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "",
-        text: `Decides no involucrarte más, el tabernero tendrá que arreglárselas. Abandonas la taberna y no asistes a la reinauguración.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Decides no involucrarte más, el tabernero tendrá que arreglárselas. Abandonas la taberna y no asistes a la reinauguración.<br><br><em>FINAL CONSEGUIDO: NEUTRAL (2)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -323,6 +323,7 @@ const scenes = {
         text: `Tienes en frente dos puertas, una lleva al baño y otra lleva a una bodega. ¿A cuál decides ir?`,
         options: [
             { text: "Entrar a la bodega, debe estar llena de cajas y basura", next: "InvestigarBodegaSinLlaves" },
+            { text: "Prefieres volver a la sala principal, la inauguración ya va a comenzar", next: "TerminarOrganizar" },
             { text: "Entrar al baño, tiene pinta de estar sucio", next: "OrganizarMasOtraVez" }
         ]
     },
@@ -380,7 +381,7 @@ const scenes = {
         image: "https://i.imgur.com/qhlPj8y.png",
         background: "https://i.imgur.com/73lIIcK.png",
         soundEffect: "",
-        text: `Evitas al tabernero y te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Evitas al tabernero y te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL (3)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [       
         ]
     },
@@ -482,7 +483,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "",
-        text: `Te terminan echando de la inauguración de la taberna, tendrás que venir otro día, has hecho enojar al tabernero.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Te terminan echando de la inauguración de la taberna, tendrás que venir otro día, has hecho enojar al tabernero.<br><br><em>FINAL CONSEGUIDO: NEUTRAL (4)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -528,7 +529,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "lostGame.mp3",
-        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas que tenía. No te sientes para nada orgulloso de lo que acabas de hacer...<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas que tenía. No te sientes para nada orgulloso de lo que acabas de hacer...<br><br><em>FINAL CONSEGUIDO: MALO (2)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -610,7 +611,7 @@ const scenes = {
         image: "https://i.imgur.com/cM3Lzdy.png",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "laugh.mp3",
-        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! Toma un pantallazo (pantalla completa) y publícalo en el post del comunicado.</em>`,
+        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! (1) Toma un pantallazo (pantalla completa) y publícalo en el post del comunicado.</em>`,
         options: [
             { text: "¿Viajarás a Banaro? (continuará). Finalizar la novela gráfica, felicidades.", next: "Start" }
         ]
@@ -633,7 +634,7 @@ const scenes = {
         image: "https://i.imgur.com/qhlPj8y.png",
         background: "https://i.imgur.com/73lIIcK.png",
         soundEffect: "backsound.mp3",
-        text: `Prefieres evitar el conflicto al no ir a la costa, te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Prefieres evitar el conflicto al no ir a la costa, te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL (5)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [       
         ]
     },
@@ -679,7 +680,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "",
-        text: `Prefieres evitar el conflicto al no pelear con los piratas, puede que hasta incluso hayas simpatizado con ellos. No regresas a la taberna. <br><br><em>FINAL CONSEGUIDO: ¿NEUTRAL?</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Prefieres evitar el conflicto al no pelear con los piratas, puede que hasta incluso hayas simpatizado con ellos. No regresas a la taberna. <br><br><em>FINAL CONSEGUIDO: ¿NEUTRAL? (6)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [       
         ]
     },
@@ -701,7 +702,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "",
-        text: `Sales huyendo de la costa bastante nervioso, esos piratas eran muy fuertes. A lo mejor intentarlo con un arma sería una buena idea. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Sales huyendo de la costa bastante nervioso, esos piratas eran muy fuertes. A lo mejor intentarlo con un arma sería una buena idea. <br><br><em>FINAL CONSEGUIDO: NEUTRAL (7)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [       
         ]
     },
@@ -711,7 +712,7 @@ const scenes = {
         image: "https://i.imgur.com/mjLGXhD.png",
         background: "https://i.imgur.com/o8FxFqk.png",
         soundEffect: "lostGame.mp3",
-        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la costa con un chichón en la frente y cortes en tu cuerpo...<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la costa con un chichón en la frente y cortes en tu cuerpo...<br><br><em>FINAL CONSEGUIDO: MALO (3)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     }
@@ -793,7 +794,7 @@ function showScene(key) {
         const countdownTimer = document.getElementById("countdown-timer");
         countdownDiv.style.display = "block";
     
-        let timeLeft = 8;
+        let timeLeft = 10;
         countdownTimer.textContent = timeLeft;
     
         const countdownInterval = setInterval(() => {
