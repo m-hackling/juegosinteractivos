@@ -611,7 +611,7 @@ const scenes = {
         image: "https://i.imgur.com/cM3Lzdy.png",
         background: "https://i.imgur.com/9vEJy1I.png",
         soundEffect: "laugh.mp3",
-        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! (1) ¿Viajarás a Banaro? (continuará). Toma una captura (pantalla completa del foro) y publícalo en el post del comunicado. Finaliza la novela grafica, felicidades</em>`,
+        text: `*El pirata escupe sangre, se arrastra entre la arena mientras está adolorido. Gime de dolor, pero su mirada no ha perdido el odio.*<br><br><br>¡Maldito...! Ngh... esto no se va a quedar así...<br><br>*Respira con dificultad, gruñe al intentar incorporarse, pero cae de nuevo.*<br><br>Nuestro capitán... está en Banaro... cuando se entere... vendrá por ti... y por esta maldita isla.<br><br><em>¡FINAL CONSEGUIDO: BUENO! (1)<br>¿Viajarás a Banaro? (continuará). Toma una captura (pantalla completa del foro) y publícalo en el post del comunicado. Finaliza la novela grafica, felicidades</em>`,
         options: [
         ]
     },
