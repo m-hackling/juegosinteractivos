@@ -217,7 +217,7 @@ const scenes = {
     TomarSake2: {
         character: "Narrador",
         image: "",
-        background: "https://i.imgur.com/0WVQzdJ.png",
+        background: "https://i.imgur.com/YPOtN1t.png",
         soundEffect: "",
         text: `Decides seguir bebiendo. El ambiente es festivo, pero algo turbio...`,
         options: [
@@ -229,7 +229,7 @@ const scenes = {
     TomarSake3: {
         character: "Narrador",
         image: "",
-        background: "https://i.imgur.com/0WVQzdJ.png",
+        background: "https://i.imgur.com/IndAGxZ.png",
         soundEffect: "",
         text: `Ya estás algo ebrio. El tabernero se acerca preocupado.`,
         options: [
@@ -242,17 +242,17 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/0WVQzdJ.png",
         soundEffect: "",
-        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FIN (neutral)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Sales tambaleante de la taberna. Tal vez mañana recuerdes algo de esto.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
 
     FinalMalo1: {
         character: "Narrador",
-        image: "",
-        background: "https://i.imgur.com/0WVQzdJ.png",
-        soundEffect: "",
-        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        image: "https://i.imgur.com/CbpJSSL.png",
+        background: "https://i.imgur.com/D3dNHu2.png",
+        soundEffect: "lostGame.mp3",
+        text: `En tu borrachera, empujas al tabernero sin querer. Los guardias te sacan a empujones.<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -283,8 +283,8 @@ const scenes = {
 
     NoAyudar: {
         character: "Narrador",
-        image: "",
-        background: "",
+        image: "https://i.imgur.com/LOqewoO.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "",
         text: `El tabernero suspira. Aun así, sigue limpiando solo. Lo notas muy tenso.`,
         options: [
@@ -296,9 +296,9 @@ const scenes = {
     FinalNeutral3: {
         character: "Narrador",
         image: "",
-        background: "",
+        background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "",
-        text: `Decides no involucrarte más. Abandonas la taberna.<br><br><em>FIN (conseguiste un final neutral)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Decides no involucrarte más, el tabernero tendrá que arreglárselas. Abandonas la taberna y no asistes a la reinauguración.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -306,16 +306,64 @@ const scenes = {
     AyudarOrganizar: {
         character: "Narrador",
         image: "",
-        background: "",
-        soundEffect: "",
+        background: "https://i.imgur.com/YteeK6f.png",
+        soundEffect: "clean.mp3",
         text: `Ayudas a limpiar y ordenar. El lugar empieza a lucir mejor.`,
         options: [
             { text: "Seguir organizando", next: "OrganizarMas" },
-            { text: "Explorar un cuarto misterioso", next: "InvestigarCuarto" }
+            { text: "Terminar las labores, te duele la espalda y ya ha sido suficiente", next: "TerminarOrganizar" }
         ]
     },
 
     OrganizarMas: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/iaKlUvW.png",
+        soundEffect: "",
+        text: `Tienes en frente dos puertas, una lleva al baño y otra lleva a una bodega. ¿A cuál decides ir?`,
+        options: [
+            { text: "Entrar al baño", next: "OrganizarMasOtraVez" },
+            { text: "Entrar a la bodega", next: "InvestigarBodegaSinLlaves" }
+        ]
+    },
+
+    OrganizarMasOtraVez: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/yRyNFxL.png",
+        soundEffect: "",
+        text: `El baño parece estar un poco sucio, dejaron la basura regada en el suelo y el tocador está pegajoso.`,
+        options: [
+            { text: "Limpiar el baño", next: "LimpiarBaño" },
+            { text: "Negarte y salir a la taberna", next: "TerminarOrganizar" }
+        ]
+    },
+
+    LimpiarBaño: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/R2Kx9Xx.png",
+        soundEffect: "clean.mp3",
+        text: `Mientras limpias el baño, en la basura, alguien dejó una llave, con la etiqueta "bodega". ¿Decides tomarla?`,
+        options: [
+            { text: "Tomar la llave", next: "TomarLlaveBodega" },
+            { text: "No tomarla y salir del baño", next: "TerminarOrganizar" }
+        ]
+    },
+
+    TomarLlaveBodega: {
+        character: "Narrador",
+        image: "https://i.imgur.com/83RKd0C.png",
+        background: "https://i.imgur.com/yRyNFxL.png",
+        soundEffect: "grab.mp3",
+        text: `¡Has obtenido la llave de la bodega!`,
+        options: [
+            { text: "Tomar la llave e ir a la bodega", next: "InvestigarBodegaConLlaves" },
+            { text: "No tomarla y salir del baño", next: "TerminarOrganizar" }
+        ]
+    },
+
+    TerminarOrganizar: {
         character: "Narrador",
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
@@ -325,15 +373,106 @@ const scenes = {
             { text: "Preguntar qué le preocupa", next: "HistoriaExtorsion" }
         ]
     },
+    
+    InvestigarBodegaConLlaves: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/peYZbBo.png",
+        soundEffect: "doorlock.mp3",
+        text: `Te acercas la puerta de la bodega, pero el pomo está atorado.`,
+        options: [
+            { text: "Intentar forzarla", next: "ForzarPuerta" },
+            { text: "Usar las llaves que encontraste", next: "UsarLlaveBodega" },
+        ]
+    },
 
-    InvestigarCuarto: {
+    UsarLlaveBodega: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/wyRhpGd.png",
+        soundEffect: "",
+        text: `¡Eureka! La puerta de la bodega se ha abierto.`,
+        options: [
+            { text: "Entrar a la bodega", next: "EncontrarGuantes" },
+            { text: "No entrar y hablar con el tabernero", next: "TerminarOrganizar" },
+        ]
+    },
+
+    EncontrarGuantes: {
         character: "Narrador",
         image: "https://i.imgur.com/MRdT26V.png",
         background: "https://i.imgur.com/6I14sev.png",
         soundEffect: "grab.mp3",
         text: `Encuentras un par de guantes de acero escondidos entre cajas. Podrían ser útiles.`,
         options: [
-            { text: "Volver y hablar con el tabernero", next: "HistoriaExtorsionConGuantes" }
+            { text: "Volver y hablar con el tabernero", next: "TerminarOrganizarConGuantes" }
+        ]
+    },
+
+    TerminarOrganizarConGuantes: {
+        character: "Narrador",
+        image: "https://i.imgur.com/LOqewoO.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "",
+        text: `Terminas de organizar. Pero el tabernero sigue preocupado.`,
+        options: [
+            { text: "Preguntar qué le preocupa", next: "HistoriaExtorsionConGuantes" }
+        ]
+    },
+
+    InvestigarBodegaSinLlaves: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/peYZbBo.png",
+        soundEffect: "",
+        text: `Te acercas la puerta de la bodega, pero el pomo está atorado.`,
+        options: [
+            { text: "Intentar forzarla", next: "ForzarPuerta" },
+            { text: "Dejar de intentar e ir al baño", next: "OrganizarMasOtraVez" },            
+        ]
+    },
+
+    ForzarPuerta: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/peYZbBo.png",
+        soundEffect: "doorlock.mp3",
+        text: `La puerta está con llave, no abre. Se verá mal si intentas abrirla a la fuerza.`,
+        options: [
+            { text: "Forzarla otra vez", next: "ForzarPuertaOtraVez" },
+            { text: "Hablar con el tabernero", next: "TerminarOrganizar" }
+        ]
+    },
+
+    ForzarPuertaOtraVez: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/peYZbBo.png",
+        soundEffect: "forzarPuerta.mp3",
+        text: `El tabernero se molesta porque tratas de romper la puerta y jala del cuello de tu camisa.`,
+        options: [
+            { text: "Hablar con el tabernero", next: "HablarTaberneroForzarPuerta" }
+        ]
+    },
+
+    HablarTaberneroForzarPuerta: {
+        character: "Tabernero",
+        image: "https://i.imgur.com/8LCUO8p.png",
+        background: "https://i.imgur.com/iaKlUvW.png",
+        soundEffect: "",
+        text: `¡¿Qué crees que haces?! ¡Vas a dañar el negocio!`,
+        options: [
+            { text: "Salir de la taberna", next: "SalirTabernaForzarPuerta" }
+        ]
+    },
+
+    SalirTabernaForzarPuerta: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/UOTSQAt.png",
+        soundEffect: "",
+        text: `Te terminan echando de la inauguración de la taberna, tendrás que venir otro día, has hecho enojar al tabernero.<br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        options: [
         ]
     },
 
@@ -342,7 +481,7 @@ const scenes = {
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "cry.mp3",
-        text: `Hace unos días, unos piratas comenzaron a pedirme "protección". Si no pago, arrasarán la taberna.`,
+        text: `Hace unos días, unos piratas comenzaron a pedirme "protección". Si no pago, arrasarán la taberna el dia de mañana.`,
         options: [
             { text: "Ayudarle con los piratas", next: "PeleaSinGuantes" },
             { text: "No ayudarle", next: "NoAyudarConPiratas" }
@@ -354,7 +493,7 @@ const scenes = {
         image: "https://i.imgur.com/LOqewoO.png",
         background: "https://i.imgur.com/95tv4Uv.png",
         soundEffect: "cry.mp3",
-        text: `Hace unos días, unos piratas comenzaron a pedirme "protección". Si no pago, arrasarán la taberna.`,
+        text: `Hace unos días, unos piratas comenzaron a pedirme "protección". Si no pago, arrasarán la taberna el dia de mañana.`,
         options: [
             { text: "Ayudarle con los piratas", next: "PeleaConGuantes" },
             { text: "No ayudarle", next: "NoAyudarConPiratas" }
@@ -363,9 +502,9 @@ const scenes = {
 
     NoAyudarConPiratas: {
         character: "Narrador",
-        image: "",
-        background: "",
-        soundEffect: "",
+        image: "https://i.imgur.com/YUxdi7o.png",
+        background: "https://i.imgur.com/95tv4Uv.png",
+        soundEffect: "clean.mp3",
         text: `El tabernero asiente resignado. Se da vuelta y sigue limpiando solo.`,
         options: [
             { text: "Robarle mientras está distraído", next: "FinalMalo2" },
@@ -376,9 +515,9 @@ const scenes = {
     FinalMalo2: {
         character: "Narrador",
         image: "",
-        background: "",
-        soundEffect: "",
-        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas. No te sientes orgulloso...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        background: "https://i.imgur.com/UOTSQAt.png",
+        soundEffect: "lostGame.mp3",
+        text: `Aprovechas el descuido del tabernero y te llevas algunas monedas que tenía. No te sientes para nada orgulloso de lo que acabas de hacer...<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     },
@@ -386,9 +525,57 @@ const scenes = {
     PeleaConGuantes: {
         character: "Narrador",
         image: "",
-        background: "",
+        background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "",
-        text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud.<br><br><em>¡FINAL BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
+        text: `Sales de la taberna de Whiskey Peak, parece que la inauguración quedará para luego. A la lejanía observas a unos piratas en la costa`,
+        options: [
+            { text: "Ir a la costa", next: "IrCostaGuantes" },
+            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" },            
+        ]
+    },
+
+    IrCostaGuantes: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "",
+        text: `En la costa, observas a un par de piratas bastante peligrosos.`,
+        options: [
+            { text: "Hablar con los piratas", next: "HablarPiratasGuantes" },
+            { text: "Atacarlos de improvisto", next: "PeleaConGuantesImprovisto" },            
+        ]
+    },
+
+    HablarPiratasGuantes: {
+        character: "Pirata",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "laugh.mp3",
+        text: `¿Tu quién mierda eres? Largo de aquí.`,
+        options: [
+            { text: "Atacar al pirata", next: "PeleaConGuantesImprovisto" },
+            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirataConGuantes" },            
+        ]
+    },
+
+    ExplicacionesPirataConGuantes: {
+        character: "Pirata",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "",
+        text: `¡Ese condenado nos está dejando sin cerveza porque provocamos muchos problemas en el bar!`,
+        options: [
+            { text: "Comprendes la situación de los piratas y te vas", next: "RegresarteNeutralPirataExplicacion" },
+            { text: "Niegas y decides luchar contra ellos", next: "PeleaConGuantesImprovisto" },            
+        ]
+    },
+
+    PeleaConGuantesImprovisto: {
+        character: "Narrador",
+        image: "https://i.imgur.com/cM3Lzdy.png",
+        background: "https://i.imgur.com/9vEJy1I.png",
+        soundEffect: "grab.mp3",
+        text: `Gracias a los guantes de acero, logras derrotar a los piratas tras una dura pelea. El tabernero te abraza con gratitud luego de estar escondido detrás de una roca, te estuvo observando.<br><br><em>¡FINAL CONSEGUIDO: BUENO! Toma un pantallazo y publícalo en el post del comunicado.</em>`,
         options: [
             { text: "Finalizar la novela gráfica, felicidades", next: "Start" }
         ]
@@ -397,9 +584,77 @@ const scenes = {
     PeleaSinGuantes: {
         character: "Narrador",
         image: "",
-        background: "",
+        background: "https://i.imgur.com/UOTSQAt.png",
         soundEffect: "",
-        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la taberna con un chichón...<br><br><em>FIN (malo)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        text: `Sales de la taberna de Whiskey Peak, parece que la inauguración quedará para luego. A la lejanía observas a unos piratas en la costa`,
+        options: [
+            { text: "Ir a la costa", next: "IrCosta" },
+            { text: "Pensartelo mejor y darte media vuelta", next: "RegresarteNeutral" },            
+        ]
+    },
+
+    RegresarteNeutral: {
+        character: "Narrador",
+        image: "https://i.imgur.com/qhlPj8y.png",
+        background: "https://i.imgur.com/73lIIcK.png",
+        soundEffect: "backsound.mp3",
+        text: `Prefieres evitar el conflicto al no ir a la costa, te quedas en la inauguración hasta su finalización. <br><br><em>FINAL CONSEGUIDO: NEUTRAL</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        options: [       
+        ]
+    },
+
+    IrCosta: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "",
+        text: `En la costa, observas a un par de piratas bastante peligrosos.`,
+        options: [
+            { text: "Hablar con los piratas", next: "HablarPiratas" },
+            { text: "Atacarlos de improvisto", next: "PeleaSinGuantesImprovisto" },            
+        ]
+    },
+
+    HablarPiratas: {
+        character: "Pirata",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "laugh.mp3",
+        text: `¿Tu quién mierda eres? Largo de aquí.`,
+        options: [
+            { text: "Atacar al pirata", next: "PeleaSinGuantesImprovisto" },
+            { text: "Preguntarles por qué extorsionan al tabernero", next: "ExplicacionesPirata" },            
+        ]
+    },
+
+    ExplicacionesPirata: {
+        character: "Pirata",
+        image: "https://i.imgur.com/1mrX3IZ.png",
+        background: "https://i.imgur.com/WFY3jIG.png",
+        soundEffect: "laugh.mp3",
+        text: `¡Ese condenado nos está dejando sin cerveza porque provocamos muchos problemas en el bar!`,
+        options: [
+            { text: "Comprendes la situación de los piratas y te vas", next: "RegresarteNeutralPirataExplicacion" },
+            { text: "Niegas y decides luchar contra ellos", next: "PeleaSinGuantesImprovisto" },            
+        ]
+    },
+
+    RegresarteNeutralPirataExplicacion: {
+        character: "Narrador",
+        image: "",
+        background: "https://i.imgur.com/9vEJy1I.png",
+        soundEffect: "",
+        text: `Prefieres evitar el conflicto al no pelear con los piratas, puede que hasta incluso hayas simpatizado con ellos. No regresas a la taberna. <br><br><em>FINAL CONSEGUIDO: ¿NEUTRAL?</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
+        options: [       
+        ]
+    },
+
+    PeleaSinGuantesImprovisto: {
+        character: "Narrador",
+        image: "https://i.imgur.com/mjLGXhD.png",
+        background: "https://i.imgur.com/o8FxFqk.png",
+        soundEffect: "lostGame.mp3",
+        text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la costa con un chichón en la frente y cortes en tu cuerpo...<br><br><em>FINAL CONSEGUIDO: MALO</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
     }
