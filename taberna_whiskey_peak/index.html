@@ -22,6 +22,27 @@
             <br><br><span style="color: white; font-size: 15px;">v1.1.2-hotfix. hecho por marquito / undenfined</span><br>
             <span style="color: white; font-size: 12px;">Para reportar bugs o errores me puedes abrir MD en discord: mhackling</span>
             <br>
+            <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+                <button onclick="reiniciarProgreso()">Eliminar todo tu progreso</button>
+                <button onclick="mostrarLogros()">Logros obtenidos</button>
+            </div>
+
+            <!-- Modal de logros -->
+            <div id="modal-logros" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999;">
+                <div style="background:-webkit-linear-gradient(top, #FFFFFF, #D5C2A5); margin:5% auto; padding:20px; width:80%; max-width:600px; border-radius:10px; position:relative;">
+                    <h2 style="text-align:center; color: #675252;">🎖️ Logros obtenidos</h2>
+            
+                    <!-- CONTENEDOR CON SCROLL -->
+                    <div class="scroll-logros" style="max-height:466px; overflow-y:auto; margin-top:10px; border-radius:8px; border:1px solid #ccc; padding: 1rem;">
+                        <table cellpadding="4" cellspacing="0" width="100%">
+                            <tbody id="lista-logros">
+                            </tbody>
+                        </table>
+                    </div>
+            
+                    <button onclick="cerrarModalLogros()" style="margin-top:15px;">Cerrar</button>
+                </div>
+            </div>
         </div>
     </div>
 

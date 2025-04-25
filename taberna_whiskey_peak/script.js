@@ -727,7 +727,18 @@ const scenes = {
         text: `Intentas luchar contra los piratas, pero sin un arma adecuada te superan fácilmente. Te despiertas fuera de la costa con un chichón en la frente y cortes en tu cuerpo...<br><br><em>FINAL CONSEGUIDO: MALO (3)</em><br><br>La novela gráfica ha terminado, volverá a cargarse en unos segundos...`,
         options: [
         ]
+    },
+
+    FinalOcultoDesbloqueado: {
+        character: "Narrador",
+        image: "https://i.imgur.com/cM3Lzdy.png",
+        background: "https://i.imgur.com/9vEJy1I.png",
+        soundEffect: "easterEgg.mp3",
+        text: `*El pirata escupe sangre mientras se arrastra por la arena, el dolor se refleja en cada movimiento.*<br><br><br>¡Tsk...! Maldito seas... Ngh... nunca pensé que alguien como tú... pudiera derrotarme sin caer en la oscuridad...<br><br>*Se esfuerza por levantarse, pero sus fuerzas lo traicionan y cae nuevamente, jadeando.*<br><br>Nuestro capitán... está en Banaro... cuando se entere, vendrá por ti... y por esta maldita isla...<br><br>*El pirata escupe a un lado, y con la poca dignidad que le queda, alza la voz una última vez.*<br><br>Aún así... tienes mi respeto. Eres el maldito héroe de Whiskey Peak...<br><br><em>¡FINAL CONSEGUIDO: OCULTO! (Easter Egg)<br>¿Viajarás a Banaro? (continuará). Toma una captura (pantalla completa del foro) y publícalo en el post del comunicado. Finaliza la novela gráfica. ¡Gracias por tomarte el tiempo!</em>`,
+        options: [
+        ]
     }
+    
 };
 function disableChoices() {
     const choices = document.getElementById("choices");
@@ -800,6 +811,25 @@ function typeText(element, text, index = 0) {
 }
 
 function showScene(key) {
+    const finalesGuardados = JSON.parse(localStorage.getItem("finalesAlcanzados")) || [];
+
+    // VERIFICAR SI SE DESBLOQUEA FINAL OCULTO
+    if (key === "DerrotarPirataPeleaConGuantesImprovisto" &&
+        !finalesGuardados.includes("FinHistoriaPeleaConGuantesImprovisto") &&
+        finalesGuardados.includes("FinalNeutral1") &&
+        finalesGuardados.includes("FinalNeutral3") &&
+        finalesGuardados.includes("RegresarteNeutralSinPreocupar") &&
+        finalesGuardados.includes("SalirTabernaForzarPuerta") &&
+        finalesGuardados.includes("RegresarteNeutral") &&
+        finalesGuardados.includes("RegresarteNeutralPirataExplicacion") &&
+        finalesGuardados.includes("HuirPiratasSinGuantesPelea") &&
+        !finalesGuardados.includes("FinalMalo1") &&
+        !finalesGuardados.includes("FinalMalo2") &&
+        !finalesGuardados.includes("FinHistoriaSinGuantesImprovisto") &&
+        !finalesGuardados.includes("FinalOcultoDesbloqueado")) {
+        key = "FinalOcultoDesbloqueado"; // llegas al final oculto
+    }
+
     const content = scenes[key];
     if (!content) return;
 
@@ -825,6 +855,13 @@ function showScene(key) {
 
     if (esFinal) {
         sessionStorage.setItem("finalAlcanzado", "true");
+
+        const finalesGuardados = JSON.parse(localStorage.getItem("finalesAlcanzados")) || [];
+        if (!finalesGuardados.includes(key)) {
+            finalesGuardados.push(key);
+            localStorage.setItem("finalesAlcanzados", JSON.stringify(finalesGuardados));
+        }
+
         let nombreJugador = sessionStorage.getItem("nombreJugador");
         if (!nombreJugador) {
             nombreJugador = prompt("Has llegado al final de la historia. Ingresa tu nombre de foro para registrar tu participación:");
@@ -866,6 +903,101 @@ function showScene(key) {
 
     disableChoices();
 }
+
+function mostrarLogros() {
+    const logros = [
+        {
+            id: "FinHistoriaPeleaConGuantesImprovisto",
+            titulo: "¡Final bueno!",
+            descripcion: "Has participado en la reinauguración de la taberna de Whiskey Peak y obtuviste el final bueno.",
+            condicion: "Una vez obtenido, el logro no se pierde.",
+            imagen: "https://i.imgur.com/SAmNb7v.png"
+        },
+        {
+            id: "FinalMalo1",
+            titulo: "Eres un borracho",
+            descripcion: "Hiciste el ridículo en la reinauguración por culpa del alcohol.",
+            condicion: "Una vez obtenido, el logro no se pierde.",
+            imagen: "https://i.imgur.com/HssXmw1.png"
+        },
+        {
+            id: "FinalOcultoDesbloqueado",
+            titulo: "<del>Logro oculto</del> Un vérdadero héroe",
+            descripcion: "Hiciste la ruta del final bueno, habiendo completado antes todos los finales neutrales.",
+            condicion: "Una vez obtenido, el logro no se pierde.",
+            imagen: "https://i.imgur.com/P7HgbW8.png"
+        }
+    ];
+
+    const contenedor = document.getElementById("lista-logros");
+    contenedor.innerHTML = ""; // Limpia el contenido previo
+
+    const finalesGuardados = JSON.parse(localStorage.getItem("finalesAlcanzados")) || [];
+
+    let encontrarLogro = false;
+    logros.forEach(logro => {
+        if (finalesGuardados.includes(logro.id)) {
+            encontrarLogro = true;
+            const div = document.createElement("tr");
+
+            div.innerHTML = `
+                <td><div style="width: 150px; height: 150px"><img style="width: 150px; height: 150px; margin-right: 15px;" src="${logro.imagen}"></div></td>
+                <td style="color: black; text-align: justify;"><b>${logro.titulo}</b><br>
+                <u>Descripción</u>: ${logro.descripcion}<br>
+                <b>Condición:</b> ${logro.condicion}
+                </td>
+            `;
+
+            contenedor.appendChild(div);
+        }
+    });
+
+    if(!encontrarLogro){
+        contenedor.innerHTML = "<li style='color: black;'>No has desbloqueado ningún logro aún 😢😢</li>";
+    }
+    
+    if (finalesGuardados.includes("FinHistoriaPeleaConGuantesImprovisto") &&
+        finalesGuardados.includes("FinalNeutral1") &&
+        finalesGuardados.includes("FinalNeutral3") &&
+        finalesGuardados.includes("RegresarteNeutralSinPreocupar") &&
+        finalesGuardados.includes("SalirTabernaForzarPuerta") &&
+        finalesGuardados.includes("RegresarteNeutral") &&
+        finalesGuardados.includes("RegresarteNeutralPirataExplicacion") &&
+        finalesGuardados.includes("HuirPiratasSinGuantesPelea") &&
+        finalesGuardados.includes("FinalMalo1") &&
+        finalesGuardados.includes("FinalMalo2") &&
+        finalesGuardados.includes("FinHistoriaSinGuantesImprovisto")) {
+            
+        const div = document.createElement("tr");
+
+        div.innerHTML = `
+            <td><div style="width: 150px; height: 150px"><img style="width: 150px; height: 150px; margin-right: 15px;" src="https://i.imgur.com/8Q6xUgm.png"></div></td>
+            <td style="color: black; text-align: justify;"><b>Completista</b><br>
+            <u>Descripción</u>: Eres un buscador de trofeos. Obtuviste todos los finales de la reinauguración de la taberna de Whiskey Peak.<br>
+            <b>Condición:</b> Logro disponible únicamente tras haber obtenido el final bueno / una vez obtenido, el logro no se pierde.
+            </td>
+        `;
+
+        contenedor.appendChild(div);
+    }
+
+    document.getElementById("modal-logros").style.display = "block";
+}
+
+function cerrarModalLogros() {
+    document.getElementById("modal-logros").style.display = "none";
+}
+
+function reiniciarProgreso() {
+    const confirmar = confirm("¿Estás seguro de que deseas eliminar todo tu progreso? Esta acción no se puede deshacer. Perderás todos tus finales acumulados.");
+    if (confirmar) {
+        localStorage.removeItem("finalesAlcanzados");
+        sessionStorage.clear();
+        location.reload();
+    }
+}
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
     typingIndicator = document.getElementById("typing-indicator");
