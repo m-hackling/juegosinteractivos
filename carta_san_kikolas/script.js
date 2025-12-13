@@ -306,7 +306,7 @@ const scenes = {
         image: "https://i.imgur.com/nXEf855.png",
         background: "https://i.imgur.com/imHdz5J.png",
         soundEffect: "cry.mp3",
-        text: `Bettie lo encontró temblando junto a la escalera.`,
+        text: `Bettie lo encontró temblando junto a la escalera. Braise, un poco nervioso y con preocupación de lo que estaba a punto de cometer su familia, decidió contarle a su amiga...`,
         options: [
             { text: "Escuchar a Bettie", next: "OfrecerAyuda" }
         ]
