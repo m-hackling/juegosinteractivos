@@ -91,7 +91,7 @@ const scenes = {
         character: "Narrador",
         image: "https://i.imgur.com/XdO9WNx.png",
         background: "https://i.imgur.com/mku77gQ.png",
-        soundEffect: "",
+        soundEffect: "cry.mp3",
         text: `Una voz masculina y femenina respectivamente habitaron la sala. Braise apretó los puños. Nunca entendía de qué hablaban, pero cada palabra se clavaba como una espina.<br><br>De pronto, un susurro cálido detrás de él apareció...`,
         options: [
             { text: "Darse la vuelta", next: "PresentacionBettie" }
@@ -305,7 +305,7 @@ const scenes = {
         character: "Narrador",
         image: "https://i.imgur.com/nXEf855.png",
         background: "https://i.imgur.com/imHdz5J.png",
-        soundEffect: "",
+        soundEffect: "cry.mp3",
         text: `Bettie lo encontró temblando junto a la escalera.`,
         options: [
             { text: "Escuchar a Bettie", next: "OfrecerAyuda" }
@@ -451,7 +451,7 @@ const scenes = {
         character: "Narrador",
         image: "https://i.imgur.com/nXEf855.png",
         background: "https://i.imgur.com/xnszj11.png",
-        soundEffect: "",
+        soundEffect: "cry.mp3",
         text: `Braise se limpia las lágrimas. Solo recuerda el peso del mar...<br><br><br><strong>y la promesa</strong>.`,
         options: [
             { text: "Continuar", next: "BraiseLevantado" }
