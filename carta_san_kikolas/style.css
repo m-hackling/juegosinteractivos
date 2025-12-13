@@ -1,0 +1,153 @@
+body {
+    color: #f0e68c;
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+#game-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 1rem;
+    background-color: #2a2a2a;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #000;
+    position: relative;
+}
+
+#character-box {
+    text-align: center;
+    height: 286px;
+    width: 800px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+#character-image {
+    max-height: 286px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#dialogue-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 0px 0px 10px 10px;
+    margin-bottom: 1rem;
+}
+
+#character-name {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #ffd700;
+    margin-bottom: 0.5rem;
+}
+
+#dialogue-text {
+    font-size: 1.1em;
+}
+
+button {
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.8rem 1.5rem;
+    background-color: #444;
+    color: #ffd700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    width: fit-content;
+}
+
+button:hover {
+    background-color: #666;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.overlay-content {
+    background-color: #832913;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: center;
+    color: #f0e68c;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 0 30px #000;
+    width: 60rem;
+}
+
+#start-btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    background-color: #d4af37;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#start-btn:hover {
+    background-color: #c39b2f;
+}
+
+#typing-indicator {
+    font-size: 1.5rem;
+    text-align: right;
+    padding-top: 0.5rem;
+    color: #ffd700;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#typing-indicator.visible {
+    opacity: 1;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+/* Scroll estilizado */
+.scroll-logros {
+    max-height: 400px;
+    overflow-y: auto;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #c4a484 #e8d8c3; /* thumb | track */
+}
+
+.scroll-logros::-webkit-scrollbar {
+    width: 8px;
+}
+
+.scroll-logros::-webkit-scrollbar-track {
+    background: #e8d8c3; /* ← Cambia este color de fondo */
+    border-radius: 8px;
+}
+
+.scroll-logros::-webkit-scrollbar-thumb {
+    background-color: #c4a484;
+    border-radius: 8px;
+    border: 2px solid #e8d8c3;
+}
+
+.scroll-logros::-webkit-scrollbar-thumb:hover {
+    background-color: #a67c52;
+}

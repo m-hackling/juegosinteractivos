@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" style="background-image: url(https://i.imgur.com/YtxI6pW.png); background-position-x: center;">
+<head>
+    <meta charset="UTF-8">
+    <title>Whiskey Peak - Novela Visual</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div id="overlay">
+        <div class="overlay-content">
+            <div style="padding: 1rem;">
+            <img style="width: 29rem; height: 17rem;" src="https://i.imgur.com/Zk5noBB.png">
+            <h1>Carta a San Kikolas</h1>
+            <br><br>
+            <i>La tinta empieza a correr apenas Braise apoya la pluma. No sabe qué tan profunda debe ser una carta en vísperas navideñas, pero si algo ha aprendido es que ciertos recuerdos regresan solos… sobre todo los que duelen.</i>
+            <br>
+            <br>
+            <b>Cierra los ojos.</b>
+            <br>
+            <br>
+            <b>Y vuelve a tener diez años.</b>
+            <br>
+            <br>
+            <span><b>⌛ </b></span>Cada vez que salga este ícono significa que un personaje o el narrador está hablando, puedes dar clic en el texto de diálogo para que termine al instante.
+            <button id="start-btn">Comenzar</button>
+            <br><br><span style="color: white; font-size: 15px;">hecho por marquito / undenfined</span><br>
+            <span style="color: white; font-size: 12px;">Para reportar bugs o errores me puedes abrir MD en discord: mhackling</span>
+            <br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="game-container" style="display: none;">
+        <div id="character-box">
+            <img id="character-image" src="">
+        </div>
+        <div id="dialogue-box">
+            <div id="character-name"></div>
+            <div id="dialogue-text"></div>
+            <div id="typing-indicator">⌛</div>
+        </div>
+        <div id="choices"></div>
+        <div id="countdown" style="display: none; font-weight: bold; font-size: 17x; color: white; margin-top: 10px; margin-left: 10px;">
+            <img src='https://i.imgur.com/VVBL6ip.png' style="margin-right: 5px;"/></span>Reiniciando en <span id="countdown-timer">10</span> segundos...
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+</body>
+
+</html>
