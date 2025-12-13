@@ -114,7 +114,7 @@ const scenes = {
         image: "https://i.imgur.com/xUio6Y2.png",
         background: "https://i.imgur.com/M4Cnkte.png",
         soundEffect: "",
-        text: `Era Bettie, tenía catorce años, pero a los ojos de Braise parecía una adulta. Su única amiga de verdad en la mansión.<br><br>¿Qué le responderá Braise?`,
+        text: `Era Bettie, tenía quince años, pero a los ojos de Braise parecía una adulta. Su única amiga de verdad en la mansión.<br><br>¿Qué le responderá Braise?`,
         options: [
             { text: "Solo quería saber si hablaban de mí.", next: "ResponderBettyPrimero1" },
             { text: "No estaba espiando… solo escuché sin querer.", next: "ResponderBettyPrimero2" },
@@ -180,7 +180,7 @@ const scenes = {
     HistoriaBettie: {
         character: "Narrador",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `Finalmente, luego de ver las estrellas, Bettie le cuenta a Braise cómo llegó a la mansión después de tantos años...<br><br>Llegó aquí cuando era pequeña, vivía en los manglares del Archipiélago Sabaody, donde los circos brillaban entre la multitud. Allí trabajaba antes de que la familia de Braise... <strong>la tomara</strong>.`,
         options: [
@@ -191,7 +191,7 @@ const scenes = {
     PreguntaBettie: {
         character: "Bettie",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `Cuando seas grande… ¿sabes qué quiero? Volver a ese sitio.`,
         options: [
@@ -202,7 +202,7 @@ const scenes = {
     PreguntaBettie2: {
         character: "Bettie",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `El circo era ruidoso, olía a azúcar y aceite… pero era libre`,
         options: [
@@ -213,7 +213,7 @@ const scenes = {
     PreguntaBettie3: {
         character: "Bettie",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `Prométeme que cuando puedas, vendrás a buscarme allá.`,
         options: [
@@ -224,7 +224,7 @@ const scenes = {
     PromesaBraise: {
         character: "Narrador",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `¿Qué promete Braise?`,
         options: [
@@ -271,7 +271,7 @@ const scenes = {
     ContinuarBettieFinal: {
         character: "Narrador",
         image: "",
-        background: "https://i.imgur.com/wguBPS0.png",
+        background: "https://i.imgur.com/K5alOpN.png",
         soundEffect: "",
         text: `Las luces del circo brillaban como un sueño posible.<br><br>Aunque Braise no lo sabía, sería la última vez que lo vería así.`,
         options: [
@@ -486,6 +486,17 @@ const scenes = {
         background: "https://i.imgur.com/CVnw5a8.png",
         soundEffect: "",
         text: `*Suelta una gran carcajada*<br><br>¿En qué momento te dormiste Braise? ¡Estábamos esperándote para comer! >:D `,
+        options: [
+            { text: "Escuchar a Lumina entrar", next: "LuminaDialogo" }
+        ]
+    },
+
+    LuminaDialogo: {
+        character: "Lumina Ardens",
+        image: "https://i.imgur.com/EUS2HF4.png",
+        background: "https://i.imgur.com/CVnw5a8.png",
+        soundEffect: "",
+        text: `*Sonríe y no evita taparse la boca cuando ve a Braise quedándose dormido*<br><br>Me intriga verte escribiendo una carta ¿Es a una enamorada?<br><br>Luego la terminas, haces falta en la mesa, andando.`,
         options: [
             { text: "Levantarse", next: "LevantarseSueño" }
         ]
