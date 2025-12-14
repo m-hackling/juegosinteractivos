@@ -157,7 +157,7 @@ const scenes = {
 
     Unidos: {
         character: "Narrador",
-        image: "https://i.imgur.com/PkSzvaS.png",
+        image: "https://i.imgur.com/RaYbeb8.png",
         background: "https://i.imgur.com/M4Cnkte.png",
         soundEffect: "",
         text: `Bettie lo toma de la mano y lo aleja de la puerta, es mejor no escuchar cosas innecesarias. Trata de hacerlo reir en ese momento para que deje de estar triste.<br><br>Con el pasar de la noche...`,
