@@ -452,7 +452,7 @@ const scenes = {
         image: "https://i.imgur.com/nXEf855.png",
         background: "https://i.imgur.com/xnszj11.png",
         soundEffect: "cry.mp3",
-        text: `Braise se limpia las lágrimas. Solo recuerda el peso del mar...<br><br><br><strong>y la promesa</strong>.`,
+        text: `Braise se limpia las lágrimas. Aún está tratando de comprender la situación que pasó. Acaba de huir de su hogar. Solo recuerda el peso del mar...<br><br><br><strong>y la promesa</strong>.`,
         options: [
             { text: "Continuar", next: "BraiseLevantado" }
         ]
@@ -463,7 +463,7 @@ const scenes = {
         image: "",
         background: "https://i.imgur.com/JG2wbpx.png",
         soundEffect: "",
-        text: `El mar desaparece. La noche también.<br>Braise abre los ojos abruptamente, se había quedado dormido escribiendo la carta.<br>Un olor delicioso llena la habitación.`,
+        text: `El mar desaparece. La noche también.<br>Braise abre los ojos abruptamente, se había quedado dormido escribiendo la carta.<br>Un olor delicioso llena la habitación de repente cuando la puerta se abre.`,
         options: [    
             { text: "Mirar hacia atrás guiado por el olor", next: "ApareceGoa" }   
         ]
@@ -474,7 +474,7 @@ const scenes = {
         image: "https://i.imgur.com/ve4OAxz.png",
         background: "https://i.imgur.com/CVnw5a8.png",
         soundEffect: "",
-        text: `<strong>Goa</strong>, con una sonrisa tranquilizadora, se acerca y le da un golpecito en el hombro.`,
+        text: `<strong>Goa</strong>, con una sonrisa tranquilizadora se acerca y le da un golpecito en el hombro, viene acompañado de sus amigos.`,
         options: [
             { text: "Hablar con Goa", next: "GoaDialogo" }
         ]
@@ -496,7 +496,51 @@ const scenes = {
         image: "https://i.imgur.com/EUS2HF4.png",
         background: "https://i.imgur.com/CVnw5a8.png",
         soundEffect: "",
-        text: `*Sonríe y no evita taparse la boca cuando ve a Braise quedándose dormido*<br><br>Me intriga verte escribiendo una carta ¿Es a una enamorada?<br><br>Luego la terminas, haces falta en la mesa, andando.`,
+        text: `*Sonríe y no evita taparse la boca cuando vió a Braise quedándose dormido*<br><br>Me intriga verte escribiendo una carta ¿Es a una enamorada?<br><br>Luego la terminas, haces falta en la mesa, andando.`,
+        options: [
+            { text: "Ver a los músicos en la puerta", next: "MusicosDialogo" }
+        ]
+    },
+
+    MusicosDialogo: {
+        character: "Orfeo y Vazz",
+        image: "https://i.imgur.com/ADeHO3Y.png",
+        background: "https://i.imgur.com/CVnw5a8.png",
+        soundEffect: "",
+        text: `*Ambos entran mientras ensayan una canción*<br><br>Orfeo: ¡Vamos bro! Tienes que ver la nueva guitarra de Vazz.<br><br>Vazz: Baby, luego de comer escucharás mi nueva canción, El Pirata del Sonido.`,
+        options: [
+            { text: "Escuchar a Nila", next: "NilaDialogo" }
+        ]
+    },
+
+    NilaDialogo: {
+        character: "Nila",
+        image: "https://i.imgur.com/gErshvn.png",
+        background: "https://i.imgur.com/CVnw5a8.png",
+        soundEffect: "",
+        text: `*La navegante llega con muchísima hambre*<br><br>¿Vas a dejar que se enfríe la comida? Te guardé un puesto a mi lado ;)`,
+        options: [
+            { text: "Mirar a Kenny", next: "KennyDialogo" }
+        ]
+    },
+
+    KennyDialogo: {
+        character: "Kenny",
+        image: "https://i.imgur.com/LBv4CZ0.png",
+        background: "https://i.imgur.com/CVnw5a8.png",
+        soundEffect: "",
+        text: `*Se asoma inclinándose en la puerta, es muy grande para pasar*<br><br>Youuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu.<br>Te estás tardando, Braise.`,
+        options: [
+            { text: "Fijarte en Ryuna", next: "RyunaDialogo" }
+        ]
+    },
+
+    RyunaDialogo: {
+        character: "Ryuna",
+        image: "https://i.imgur.com/1kLgfnM.png",
+        background: "https://i.imgur.com/CVnw5a8.png",
+        soundEffect: "",
+        text: `*Está recostado sobre el marco de la puerta, con semblante serio*<br><br>Faltas tu.`,
         options: [
             { text: "Levantarse", next: "LevantarseSueño" }
         ]
@@ -636,34 +680,34 @@ function showScene(key) {
         fx.play();
     }
 
-    // if (esFinal) {
-    //     sessionStorage.setItem("finalAlcanzado", "true");
+    if (esFinal) {
+        sessionStorage.setItem("finalAlcanzado", "true");
 
-    //     const finalesGuardados = JSON.parse(localStorage.getItem("finalesAlcanzados")) || [];
-    //     if (!finalesGuardados.includes(key)) {
-    //         finalesGuardados.push(key);
-    //         localStorage.setItem("finalesAlcanzados", JSON.stringify(finalesGuardados));
-    //     }
+        // const finalesGuardados = JSON.parse(localStorage.getItem("finalesAlcanzados")) || [];
+        // if (!finalesGuardados.includes(key)) {
+        //     finalesGuardados.push(key);
+        //     localStorage.setItem("finalesAlcanzados", JSON.stringify(finalesGuardados));
+        // }
 
-    //     let nombreJugador = sessionStorage.getItem("nombreJugador");
-    //     if (!nombreJugador) {
-    //         nombreJugador = prompt("Has llegado al final de la historia. A veces, los recuerdos pueden doler, pero nos forjaron a ser la persona que somos hoy en día. Felices fiestas y gracias por llegar hasta aquí ;)");
-    //         if (nombreJugador) {
-    //             sessionStorage.setItem("nombreJugador", nombreJugador);
-    //         } else {
-    //             nombreJugador = "Jugador desconocido";
-    //         }
-    //     }
+        // let nombreJugador = sessionStorage.getItem("nombreJugador");
+        // if (!nombreJugador) {
+        //     nombreJugador = prompt("Has llegado al final de la historia. A veces, los recuerdos pueden doler, pero nos forjaron a ser la persona que somos hoy en día. Felices fiestas y gracias por llegar hasta aquí ;)");
+        //     if (nombreJugador) {
+        //         sessionStorage.setItem("nombreJugador", nombreJugador);
+        //     } else {
+        //         nombreJugador = "Jugador desconocido";
+        //     }
+        // }
 
-    //     const finalMsg = document.createElement("div");
-    //     finalMsg.style.marginTop = "20px";
-    //     finalMsg.style.fontWeight = "bold";
-    //     finalMsg.style.fontSize = "1.2em";
-    //     finalMsg.style.textAlign = "center";
-    //     document.getElementById("dialogue-box").appendChild(finalMsg);
+        // const finalMsg = document.createElement("div");
+        // finalMsg.style.marginTop = "20px";
+        // finalMsg.style.fontWeight = "bold";
+        // finalMsg.style.fontSize = "1.2em";
+        // finalMsg.style.textAlign = "center";
+        // document.getElementById("dialogue-box").appendChild(finalMsg);
 
-    //     return;
-    // }
+        return;
+    }
 
     // Saltar la presentación si ya se alcanzó un final
     if (sessionStorage.getItem("finalAlcanzado")) {
