@@ -1,0 +1,173 @@
+/* --- Reset y General --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #222;
+  font-family: 'Bad Script', cursive;
+  overflow: hidden;
+}
+
+/* --- Contenedor del Libro --- */
+.book {
+  perspective: 250vw;
+}
+
+.book .pages {
+  width: 60vw;
+  height: 44vw;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* --- Estilo Base de las Páginas --- */
+.book .page {
+  position: absolute;
+  top: 0;
+  width: 30vw;
+  height: 44vw;
+  background-color: #fffce0; /* Color pergamino por defecto */
+  border: 1px solid #e8e0c5;
+  cursor: pointer;
+  user-select: none;
+  transform-style: preserve-3d;
+  transition: transform 1.4s;
+  backface-visibility: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden; /* Corta lo que intente salir de la página */
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    padding: 2vw; /* Margen interno relativo al ancho de la pantalla */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto; /* Si el texto es muy largo, permite scroll interno */
+}
+
+/* Ajusta las imágenes para que nunca superen el ancho de la página */
+.page-content img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.book .page p {
+  text-align: center;
+  font-size: 2vw;
+  color: #4a3b2a;
+}
+
+/* --- Lógica de Posicionamiento (Derecha/Izquierda) --- */
+.book .page:nth-child(odd) {
+  right: 0;
+  transform-origin: 0% 50%;
+  border-radius: 0 4px 4px 0;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%);
+}
+
+.book .page:nth-child(even) {
+  left: 0;
+  transform-origin: 100% 50%;
+  transform: rotateY(180deg);
+  border-radius: 4px 0 0 4px;
+  background-image: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%);
+}
+
+/* Sombras al pasar la página */
+.book .page::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  transition: background 0.7s;
+  z-index: 2;
+  backface-visibility: hidden;
+}
+
+.book .page:nth-child(even)::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estados Flipped (Volteado) --- */
+.book .page.flipped:nth-child(odd) {
+  transform: rotateY(-180deg);
+  pointer-events: none;
+}
+
+.book .page.flipped:nth-child(odd)::before {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.book .page.flipped:nth-child(even) {
+  transform: rotateY(0deg);
+  pointer-events: all;
+}
+
+.book .page.flipped:nth-child(even)::before {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* --- Estilos de Cuero (Tapas) --- */
+.first-page, 
+.first-cover, 
+.last-cover, 
+.last-page {
+  background-color: #8b5a2b !important;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/leather.png'), 
+    linear-gradient(to bottom right, #a67c52, #6d4220) !important;
+  background-blend-mode: overlay;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.5) !important;
+    border: 11px solid #5d3540 !important;
+}
+
+/* Ajuste de luz para caras interiores/traseras */
+.first-cover, .last-page {
+  border: 11px solid #5d3540 !important;
+  background-image: 
+    url('https://www.transparenttextures.com/patterns/leather.png'), 
+    linear-gradient(to bottom left, #a67c52, #6d4220) !important;
+}
+
+/* --- Contenido de la Tapa (Texto Dorado) --- */
+.cover-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 80%;
+  font-family: 'Georgia', serif;
+  /* IMPORTANTE: Evita que el texto se vea en espejo al voltear */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.cover-content h1 {
+  font-size: 3.5vw;
+  color: #c19a6b;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6), -1px -1px 1px rgba(255,255,255,0.25);
+}
+
+.cover-content h2 {
+  font-size: 2.5vw;
+  color: #c19a6b;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5), -0.5px -0.5px 0.5px rgba(255,255,255,0.2);
+}
+
