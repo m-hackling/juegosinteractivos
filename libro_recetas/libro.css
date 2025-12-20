@@ -32,7 +32,7 @@ body {
   top: 0;
   width: 30vw;
   height: 44vw;
-  background-color: #fffce0; /* Color pergamino por defecto */
+  background-image: url(https://www.onlygfx.com/wp-content/uploads/2015/11/dirty-old-paper-texture-2-1024x698.jpg), linear-gradient(to bottom right, #3f2915, #3b2a20) !important;
   border: 1px solid #e8e0c5;
   cursor: pointer;
   user-select: none;
@@ -131,7 +131,7 @@ body {
     linear-gradient(to bottom right, #a67c52, #6d4220) !important;
   background-blend-mode: overlay;
   box-shadow: inset 0 0 15px rgba(0,0,0,0.5) !important;
-  border: 11px solid #5d3540 !important;
+  border: 2vh solid #5d3540 !important;
 }
 
 /* Ajuste de luz para caras interiores/traseras */
@@ -158,16 +158,16 @@ body {
 
 .cover-content h1 {
   font-size: 3.5vw;
-  color: #c19a6b;
+  color: #d5a265;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.7vh;
   line-height: 1.2;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.6), -1px -1px 1px rgba(255,255,255,0.25);
 }
 
 .cover-content h2 {
   font-size: 2.5vw;
-  color: #c19a6b;
+  color: #d5a265;
   text-shadow: 1px 1px 1px rgba(0,0,0,0.5), -0.5px -0.5px 0.5px rgba(255,255,255,0.2);
 }
 
