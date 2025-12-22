@@ -10,7 +10,7 @@ body {
   align-items: center;
   min-height: 100vh;
   background: #22222200;
-  font-family: 'Bad Script', cursive;
+  font-family: "Roboto Serif", serif;
   overflow: hidden;
 }
 
@@ -33,7 +33,6 @@ body {
   width: 30vw;
   height: 44vw;
   background-image: url(https://www.onlygfx.com/wp-content/uploads/2015/11/dirty-old-paper-texture-2-1024x698.jpg), linear-gradient(to bottom right, #3f2915, #3b2a20) !important;
-  border: 1px solid #e8e0c5;
   cursor: pointer;
   user-select: none;
   transform-style: preserve-3d;
@@ -67,7 +66,7 @@ body {
 
 .book .page p {
   text-align: center;
-  font-size: 2vw;
+  font-size: 1.7vw;
   color: #4a3b2a;
 }
 
@@ -75,7 +74,6 @@ body {
 .book .page:nth-child(odd) {
   right: 0;
   transform-origin: 0% 50%;
-  border-radius: 0 4px 4px 0;
   background-image: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%);
 }
 
@@ -83,7 +81,6 @@ body {
   left: 0;
   transform-origin: 100% 50%;
   transform: rotateY(180deg);
-  border-radius: 4px 0 0 4px;
   background-image: linear-gradient(to left, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 5%);
 }
 
@@ -130,13 +127,13 @@ body {
     url('https://www.transparenttextures.com/patterns/leather.png'), 
     linear-gradient(to bottom right, #a67c52, #6d4220) !important;
   background-blend-mode: overlay;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.5) !important;
+  box-shadow: inset 0 0 0.5vh rgba(0,0,0,0.5) !important;
   border: 2vh solid #5d3540 !important;
 }
 
 /* Ajuste de luz para caras interiores/traseras */
 .first-cover, .last-page {
-  border: 11px solid #5d3540 !important;
+  border: 2vh solid #5d3540 !important;
   background-image: 
     url('https://www.transparenttextures.com/patterns/leather.png'), 
     linear-gradient(to bottom left, #a67c52, #6d4220) !important;
@@ -162,12 +159,44 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.7vh;
   line-height: 1.2;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.6), -1px -1px 1px rgba(255,255,255,0.25);
+  text-shadow: 0.1vh 0.1vh 0.2vh rgba(0,0,0,0.6), -1px -1px 1px rgba(255,255,255,0.25);
 }
 
 .cover-content h2 {
   font-size: 2.5vw;
   color: #d5a265;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.5), -0.5px -0.5px 0.5px rgba(255,255,255,0.2);
+  text-shadow: 0.1vh 0.1vh 0.2vh rgba(0,0,0,0.5), -0.5px -0.5px 0.5px rgba(255,255,255,0.2);
 }
 
+.receta h2{
+  font-size: 1.7vh !important;
+}
+
+
+.receta span{
+  font-size: 1.1vw !important;
+}
+
+.receta h1{
+  font-size: 1.4vw !important;
+}
+
+.ingredientes span{
+  font-size: 1.5vh !important;
+  line-height: 1vh !important;
+  font-style: normal !important;
+}
+
+.number-recipe{
+  font-family: 'Oswald';
+}
+
+.text-recipe{
+  font-family: "Roboto Serif", serif;
+  font-size: 1.5vh; line-height: 1.5; padding-top: 0.6vh;
+}
+
+.page.receta > p,
+.page.receta > h1 {
+  flex-shrink: 0;
+}
