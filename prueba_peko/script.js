@@ -185,7 +185,7 @@ const scenes = {
     CostaEste: {
         character: "Narrador",
         image: "",
-        background: "",
+        background: "https://i.imgur.com/nupaq4m.png",
         characterImage: "narradorchara.png",
         soundEffect: "",
         text: `La Costa Este parecía calmada. Peko aprovechó para revisar bien sus recursos. El aire parecía tensarse y la hora se acercaba... <br>Todo converge en el Saurus-Saurio. El plan está listo para su fase final.`,
