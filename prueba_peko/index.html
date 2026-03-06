@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" style="background-image: url(latest.jpg); background-position-x: center;">
+<head>
+    <meta charset="UTF-8">
+    <title>The Ultimate Peko's Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Pantalla de bienvenida -->
+    <div id="overlay">
+        <div class="overlay-content">
+            <div class="overlay-button-container">
+                <button id="start-btn">JUGAR</button>
+            </div>
+            <div class="overlay-credits">
+                <div><strong>hecho por Marquito / Undenfined</strong></div>
+                <div>Para reportar bugs o errores me puedes abrir MD en discord: mhackling</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor del juego -->
+    <div id="game-container" style="display: none;">
+        <div id="character-box">
+            <img id="character-image" src="">
+        </div>
+        <div id="dialogue-box">
+            <div id="dialogue-character-image"></div>
+            <div id="dialogue-content">
+                <div id="character-name"></div>
+                <div id="dialogue-text"></div>
+                <div id="typing-indicator">⌛</div>
+            </div>
+        </div>
+        <div id="choices"></div>
+        <div id="countdown" style="display: none; font-weight: bold; font-size: 17x; color: white; margin-top: 10px; margin-left: 10px;">
+            <img src='https://i.imgur.com/ptm4wox.png' style="margin-right: 5px;"/></span>Reiniciando en <span id="countdown-timer">10</span> segundos...
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Audio -->
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mp3">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+</body>
+
+</html>
